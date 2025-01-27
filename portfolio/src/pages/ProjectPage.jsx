@@ -36,7 +36,7 @@ const ProjectPage = () => {
     }
   };
 
-  // Effetto per aggiornare le progress bar in base alla visibilità della sidebar
+  // Aggiorna progress bar e donut
   useEffect(() => {
     const progressBars = document.querySelectorAll(".progress-bar-fill");
     progressBars.forEach((bar) => {
@@ -46,6 +46,19 @@ const ProjectPage = () => {
       } else {
         bar.style.width = "0%";
       }
+    });
+
+    const donuts = document.querySelectorAll(".donut-progress");
+    donuts.forEach((donut) => {
+      const percentage = donut.getAttribute("data-percentage");
+      const radius = donut.r.baseVal.value;
+      const circumference = 2 * Math.PI * radius;
+      const offset = sidebarVisible
+        ? circumference - (percentage / 100) * circumference
+        : circumference;
+
+      donut.style.strokeDasharray = `${circumference} ${circumference}`;
+      donut.style.strokeDashoffset = offset;
     });
   }, [sidebarVisible]);
 
@@ -97,7 +110,69 @@ const ProjectPage = () => {
                 Photoshop | Illustrator | InDesign
               </span>
             </div>
-            <hr />
+          </div>
+
+          <hr />
+          {/* Donut progress */}
+          <div className="donut-container">
+            <div className="donut">
+              <svg width="100" height="100">
+                <defs>
+                  <linearGradient
+                    id="gradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="0%"
+                    y2="100%">
+                    <stop offset="0%" stopColor="rgba(255,149,0,1)" />
+                    <stop offset="100%" stopColor="rgba(255,205,0,1)" />
+                  </linearGradient>
+                </defs>
+                <circle
+                  className="donut-background"
+                  cx="50"
+                  cy="50"
+                  r="45"></circle>
+                <circle
+                  className="donut-progress"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  data-percentage="100"></circle>
+                <text x="50%" y="50%" textAnchor="middle" dy=".3em">
+                  Italian
+                </text>
+              </svg>
+            </div>
+            <div className="donut">
+              <svg width="100" height="100">
+                <defs>
+                  <linearGradient
+                    id="gradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="0%"
+                    y2="100%">
+                    <stop offset="0%" stopColor="rgba(255,149,0,1)" />
+                    <stop offset="100%" stopColor="rgba(255,205,0,1)" />
+                  </linearGradient>
+                </defs>
+                <circle
+                  className="donut-background"
+                  cx="50"
+                  cy="50"
+                  r="45"></circle>
+                <circle
+                  className="donut-progress"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  data-percentage="75"></circle>
+                <text x="50%" y="50%" textAnchor="middle" dy=".3em">
+                  English
+                </text>
+              </svg>
+            </div>
           </div>
         </div>
 
