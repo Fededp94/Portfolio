@@ -1,0 +1,80 @@
+.container-full-height {
+  height: 100vh;
+  background-color: #949494;
+}
+
+.row-full-height {
+  height: 100%;
+}
+
+.main-content {
+  height: 100%;
+  padding: 1rem;
+}
+
+/* Animazione Sidebar */
+.sidebar-hidden {
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.sidebar-visible {
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.sidebar {
+  height: 100%;
+  background-color: #333333;
+  color: white;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25%;
+  z-index: 1000;
+  transition: transform 0.7s ease-in-out;
+}
+
+/* card dentro sidebar */
+
+.sidebar-card {
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #444444;
+  text-align: center;
+}
+
+.sidebar-card-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.sidebar-card-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #333333;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  font-weight: 600;
+  color: #929292;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #6b6b6b;
+  font-family: sans-serif;
+  font-weight: 500;
+}
