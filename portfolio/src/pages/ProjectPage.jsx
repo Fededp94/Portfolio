@@ -6,7 +6,6 @@ const ProjectPage = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const [mouseOverSidebar, setMouseOverSidebar] = useState(false);
 
-  // Funzione per rilevare il movimento del mouse
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (e.clientX < 20) {
@@ -37,6 +36,19 @@ const ProjectPage = () => {
     }
   };
 
+  // Effetto per aggiornare le progress bar in base alla visibilità della sidebar
+  useEffect(() => {
+    const progressBars = document.querySelectorAll(".progress-bar-fill");
+    progressBars.forEach((bar) => {
+      if (sidebarVisible) {
+        const percentage = bar.getAttribute("data-percentage");
+        bar.style.width = `${percentage}%`;
+      } else {
+        bar.style.width = "0%";
+      }
+    });
+  }, [sidebarVisible]);
+
   return (
     <div className="container-fluid container-full-height">
       <div className="row row-full-height">
@@ -46,9 +58,7 @@ const ProjectPage = () => {
           }`}
           onMouseEnter={handleMouseEnterSidebar}
           onMouseLeave={handleMouseLeaveSidebar}>
-          {/* Card con immagine e testo */}
           <div className="card sidebar-card">
-            {/* Foto rotonda */}
             <div className="sidebar-card-img-container">
               <img src={foto} alt="Foto Profilo" className="sidebar-card-img" />
             </div>
@@ -60,11 +70,34 @@ const ProjectPage = () => {
             </div>
           </div>
 
-          {/* Testi sotto la card */}
-          <div className="sidebar-texts">
-            <p className="sidebar-text">Testo 1</p>
-            <p className="sidebar-text">Testo 2</p>
-            <p className="sidebar-text">Testo 3</p>
+          {/* Barre di caricamento */}
+          <hr />
+          <div className="progress-bar-container">
+            <div className="progress-bar">
+              <div className="progress-bar-fill" data-percentage="100"></div>
+              <span className="progress-bar-label">
+                HTML5 | CSS3| JavaScript | React.js | GitHub
+              </span>
+            </div>
+            <div className="progress-bar">
+              <div className="progress-bar-fill" data-percentage="90"></div>
+              <span className="progress-bar-label">Bootstrap | SpringBoot</span>
+            </div>
+            <div className="progress-bar">
+              <div className="progress-bar-fill" data-percentage="70"></div>
+              <span className="progress-bar-label">Java</span>
+            </div>
+            <div className="progress-bar">
+              <div className="progress-bar-fill" data-percentage="75"></div>
+              <span className="progress-bar-label">PostgresSQL</span>
+            </div>
+            <div className="progress-bar">
+              <div className="progress-bar-fill" data-percentage="100"></div>
+              <span className="progress-bar-label">
+                Photoshop | Illustrator | InDesign
+              </span>
+            </div>
+            <hr />
           </div>
         </div>
 
