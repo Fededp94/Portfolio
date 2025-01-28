@@ -104,7 +104,7 @@
   position: relative;
   width: 100%;
   height: 20px;
-  background-color: #000000;
+  background-color: #333333;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
@@ -153,15 +153,14 @@
   fill: none;
   stroke: #333333;
   stroke-width: 10;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3))
-    drop-shadow(0 -2px 4px rgba(255, 255, 255, 0.2));
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
 }
 
 .donut-progress {
   fill: none;
   stroke-width: 10;
   stroke-linecap: round;
-  stroke: url(#gradient); /* Gradiente applicato */
+  stroke: url(#gradient);
   transform: rotate(-90deg);
   transform-origin: center;
   transition: stroke-dashoffset 2.5s ease;
@@ -171,4 +170,68 @@ text {
   font-size: 1rem;
   fill: white;
   font-weight: bold;
+}
+
+/* Pagina principale */
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  padding-top: 20px;
+  background-color: #555555;
+}
+
+.main-card {
+  background-color: #555555;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 0;
+  text-align: center;
+  max-width: 100%;
+  height: 250px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url("../images/CodingImage.jpg");
+  background-size: cover; 
+  background-position: center; */
+}
+
+.main-card-text {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: sans-serif;
+  font-weight: lighter;
+  font-size: 3.5rem;
+}
+
+/* parentesi */
+
+.parentesi1 {
+  color: yellow;
+}
+
+.parentesi2 {
+  color: lightskyblue;
+}
+
+.parentesi3 {
+  color: lightgreen;
+}
+
+.parentesi4 {
+  color: lightskyblue;
+}
+
+.parentesi5 {
+  color: lightcoral;
 }

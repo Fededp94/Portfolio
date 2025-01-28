@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../pages/ProjectPage.css";
 import foto from "../images/ProfiloImg.jpg";
+import foto2 from "../images/CodingImage.jpg";
 
 const ProjectPage = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
@@ -176,9 +177,55 @@ const ProjectPage = () => {
           </div>
         </div>
 
-        <div className="col-9 main-content">
-          <h1 className="text-3xl font-bold">Benvenuto nella Project Page</h1>
-          <p>Questo è il contenuto principale della pagina.</p>
+        <div className="main-content">
+          <div className="main-card">
+            <h3 className="main-card-text">
+              eat <span className="parentesi1">&#40;</span>
+              &nbsp;<span className="parentesi1">&#41;</span>; code{" "}
+              <span className="parentesi2">&#40;</span>
+              &nbsp;<span className="parentesi2">&#41;</span>; sleep{" "}
+              <span className="parentesi3">&#40;</span>
+              &nbsp;<span className="parentesi3">&#41;</span>; code{" "}
+              <span className="parentesi4">&#40;</span>
+              &nbsp;<span className="parentesi4">&#41;</span>; repeat{" "}
+              <span className="parentesi5">&#40;</span>
+              &nbsp;<span className="parentesi5">&#41;</span>;
+            </h3>
+          </div>
+
+          {/* Nuova sezione per tre card */}
+          <div className="row w-100 justify-content-center">
+            <div className="col-md-4">
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Card Title 1</h5>
+                  <p className="card-text">
+                    Some quick example text for card 1.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Card Title 2</h5>
+                  <p className="card-text">
+                    Some quick example text for card 2.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Card Title 3</h5>
+                  <p className="card-text">
+                    Some quick example text for card 3.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
