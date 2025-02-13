@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../pages/ProjectPage.css";
 import foto from "../images/ProfiloImg.jpg";
-import foto2 from "../images/CodingImage.jpg";
 
 const ProjectPage = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
@@ -66,6 +65,7 @@ const ProjectPage = () => {
   return (
     <div className="container-fluid container-full-height">
       <div className="row row-full-height">
+        {/* SIDEBAR */}
         <div
           className={`col-3 sidebar ${
             sidebarVisible ? "sidebar-visible" : "sidebar-hidden"
@@ -84,13 +84,12 @@ const ProjectPage = () => {
             </div>
           </div>
 
-          {/* Barre di caricamento */}
           <hr />
           <div className="progress-bar-container">
             <div className="progress-bar">
               <div className="progress-bar-fill" data-percentage="100"></div>
               <span className="progress-bar-label">
-                HTML5 | CSS3| JavaScript | React.js | GitHub
+                HTML5 | CSS3 | JavaScript | React.js | GitHub
               </span>
             </div>
             <div className="progress-bar">
@@ -98,11 +97,11 @@ const ProjectPage = () => {
               <span className="progress-bar-label">Bootstrap | SpringBoot</span>
             </div>
             <div className="progress-bar">
-              <div className="progress-bar-fill" data-percentage="70"></div>
+              <div className="progress-bar-fill" data-percentage="80"></div>
               <span className="progress-bar-label">Java</span>
             </div>
             <div className="progress-bar">
-              <div className="progress-bar-fill" data-percentage="75"></div>
+              <div className="progress-bar-fill" data-percentage="85"></div>
               <span className="progress-bar-label">PostgresSQL</span>
             </div>
             <div className="progress-bar">
@@ -114,7 +113,6 @@ const ProjectPage = () => {
           </div>
 
           <hr />
-          {/* Donut progress */}
           <div className="donut-container">
             <div className="donut">
               <svg width="100" height="100">
@@ -177,51 +175,57 @@ const ProjectPage = () => {
           </div>
         </div>
 
+        {/* MAIN CONTENT */}
         <div className="main-content">
-          <div className="main-card">
-            <h3 className="main-card-text">
-              eat <span className="parentesi1">&#40;</span>
-              &nbsp;<span className="parentesi1">&#41;</span>; code{" "}
-              <span className="parentesi2">&#40;</span>
-              &nbsp;<span className="parentesi2">&#41;</span>; sleep{" "}
-              <span className="parentesi3">&#40;</span>
-              &nbsp;<span className="parentesi3">&#41;</span>; code{" "}
-              <span className="parentesi4">&#40;</span>
-              &nbsp;<span className="parentesi4">&#41;</span>; repeat{" "}
-              <span className="parentesi5">&#40;</span>
-              &nbsp;<span className="parentesi5">&#41;</span>;
-            </h3>
+          {/* SEZIONE SUPERIORE (CARD PRINCIPALE) */}
+          <div className="top-section">
+            <div className="main-card">
+              <h3 className="main-card-text">
+                eat <span className="parentesi1">&#40;</span>
+                &nbsp;<span className="parentesi1">&#41;</span>; code{" "}
+                <span className="parentesi2">&#40;</span>
+                &nbsp;<span className="parentesi2">&#41;</span>; sleep{" "}
+                <span className="parentesi3">&#40;</span>
+                &nbsp;<span className="parentesi3">&#41;</span>; code{" "}
+                <span className="parentesi4">&#40;</span>
+                &nbsp;<span className="parentesi4">&#41;</span>; repeat{" "}
+                <span className="parentesi5">&#40;</span>
+                &nbsp;<span className="parentesi5">&#41;</span>;
+              </h3>
+            </div>
           </div>
 
-          {/* Nuova sezione per tre card */}
-          <div className="row w-100 justify-content-center">
-            <div className="col-md-4">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">Card Title 1</h5>
-                  <p className="card-text">
-                    Some quick example text for card 1.
-                  </p>
+          {/* SEZIONE INFERIORE (TRE CARD) */}
+          <div className="bottom-section">
+            <div className="row w-100 justify-content-center">
+              <div className="col-md-4">
+                <div className="card">
+                  <div className="card-body">
+                    <h5 className="card-title">Card Title 1</h5>
+                    <p className="card-text">
+                      Some quick example text for card 1.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-md-4">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">Card Title 2</h5>
-                  <p className="card-text">
-                    Some quick example text for card 2.
-                  </p>
+              <div className="col-md-4">
+                <div className="card">
+                  <div className="card-body">
+                    <h5 className="card-title">Card Title 2</h5>
+                    <p className="card-text">
+                      Some quick example text for card 2.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-md-4">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">Card Title 3</h5>
-                  <p className="card-text">
-                    Some quick example text for card 3.
-                  </p>
+              <div className="col-md-4">
+                <div className="card">
+                  <div className="card-body">
+                    <h5 className="card-title">Card Title 3</h5>
+                    <p className="card-text">
+                      Some quick example text for card 3.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
