@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import "../pages/ProjectPage.css";
 import foto from "../images/ProfiloImg.jpg";
+import LanguageSwitcher from "../components/LanguageSwitcher"; // Import del componente
 
 const ProjectPage = () => {
+  const { t } = useTranslation();
+
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const [mouseOverSidebar, setMouseOverSidebar] = useState(false);
 
@@ -78,9 +82,7 @@ const ProjectPage = () => {
             </div>
             <div className="card-body">
               <h5 className="card-title">Federico Di Presa</h5>
-              <p className="card-text">
-                Full Stack Developer with a great passion for Frontend
-              </p>
+              <p className="card-text">{t("profileTitle")}</p>
             </div>
           </div>
 
@@ -139,7 +141,7 @@ const ProjectPage = () => {
                   r="45"
                   data-percentage="100"></circle>
                 <text x="50%" y="50%" textAnchor="middle" dy=".3em">
-                  Italian
+                  {t("italian")}
                 </text>
               </svg>
             </div>
@@ -168,7 +170,7 @@ const ProjectPage = () => {
                   r="45"
                   data-percentage="75"></circle>
                 <text x="50%" y="50%" textAnchor="middle" dy=".3em">
-                  English
+                  {t("english")}
                 </text>
               </svg>
             </div>
@@ -177,7 +179,7 @@ const ProjectPage = () => {
 
         {/* MAIN CONTENT */}
         <div className="main-content">
-          {/* SEZIONE SUPERIORE (CARD PRINCIPALE) */}
+          {/* SEZIONE SUPERIORE */}
           <div className="top-section">
             <div className="main-card">
               <h3 className="main-card-text">
@@ -194,37 +196,33 @@ const ProjectPage = () => {
               </h3>
             </div>
           </div>
-
-          {/* SEZIONE INFERIORE (TRE CARD) */}
+          <h4>
+            {t("h4MyProject")} <span className="yellow">3+</span>
+          </h4>
+          {/* SEZIONE INFERIORE */}
           <div className="bottom-section">
             <div className="row w-100 justify-content-center">
               <div className="col-md-4">
-                <div className="card">
+                <div className="card first">
                   <div className="card-body">
-                    <h5 className="card-title">Card Title 1</h5>
-                    <p className="card-text">
-                      Some quick example text for card 1.
-                    </p>
+                    <h5 className="card-title">{t("beerGenerator")}</h5>
+                    <p className="card-text">{t("descriptionCard1")}</p>
                   </div>
                 </div>
               </div>
               <div className="col-md-4">
-                <div className="card">
+                <div className="card second">
                   <div className="card-body">
-                    <h5 className="card-title">Card Title 2</h5>
-                    <p className="card-text">
-                      Some quick example text for card 2.
-                    </p>
+                    <h5 className="card-title">{t("speasy")}</h5>
+                    <p className="card-text">{t("descriptionCard2")}</p>
                   </div>
                 </div>
               </div>
               <div className="col-md-4">
-                <div className="card">
+                <div className="card third">
                   <div className="card-body">
-                    <h5 className="card-title">Card Title 3</h5>
-                    <p className="card-text">
-                      Some quick example text for card 3.
-                    </p>
+                    <h5 className="card-title">{t("card3")}</h5>
+                    <p className="card-text">{t("descriptionCard3")}</p>
                   </div>
                 </div>
               </div>
@@ -232,6 +230,8 @@ const ProjectPage = () => {
           </div>
         </div>
       </div>
+
+      <LanguageSwitcher />
     </div>
   );
 };

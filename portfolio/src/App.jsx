@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import "./i18n";
 
 function App() {
   return (

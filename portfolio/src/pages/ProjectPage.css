@@ -109,11 +109,7 @@
   position: absolute;
   height: 100%;
   width: 0;
-  background: linear-gradient(
-    0deg,
-    rgba(255, 149, 0, 1) 0%,
-    rgba(255, 205, 0, 1) 100%
-  );
+  background: linear-gradient(0deg, rgba(255, 149, 0, 1) 0%, #ffcd00 100%);
   transition: width 2.5s ease-in-out;
   border-radius: 10px 0 0 10px;
 }
@@ -213,9 +209,10 @@ text {
 }
 
 .bottom-section .card {
-  background-color: #ffffff;
+  background-color: #fff;
   margin: 1rem;
   border-radius: 10px;
+  border: solid 5px #333333;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 80%;
   height: 250px;
@@ -223,6 +220,40 @@ text {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.first {
+  position: relative;
+  transition: transform 0.7s ease-in-out;
+}
+
+.first:hover {
+  position: relative;
+  transform: translate(-30px, -30px);
+  transition: transform 0.7s ease-in-out;
+}
+
+.second {
+  position: relative;
+  transition: transform 0.7s ease-in-out;
+}
+
+.second:hover {
+  position: relative;
+  transform: translate(0px, -30px);
+  transition: transform 0.7s ease-in-out;
+}
+
+.third {
+  position: relative;
+  transition: transform 0.7s ease-in-out;
+}
+
+.third:hover {
+  position: relative;
+  transform: translate(30px, -30px);
+  transition: transform 0.7s ease-in-out;
+  transition: transform 0.7s ease-out;
 }
 
 /* Colorazione parentesi */
@@ -250,4 +281,54 @@ text {
 .sectionDivisor {
   color: #929292;
   margin-top: 2%;
+}
+
+/*switch language */
+
+.language-switcher {
+  position: fixed;
+  bottom: 30px;
+  margin-top: 10px;
+  right: 20px;
+  background-color: #444444;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+.language-switcher button {
+  background-color: #ffcd00;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.5s ease;
+  font-family: sans-serif;
+  font-weight: 600;
+  color: #333333;
+}
+
+.language-switcher button:hover {
+  background-color: #e0e0e0;
+}
+
+/* testi */
+
+h4,
+.yellow {
+  font-family: sans-serif;
+  font-weight: 600;
+  margin-left: 1.5%;
+  font-size: 2rem;
+}
+
+.yellow {
+  color: #ffcd00;
 }
