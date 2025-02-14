@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import "../pages/ProjectPage.css";
 import foto from "../images/ProfiloImg.jpg";
-import LanguageSwitcher from "../components/LanguageSwitcher"; // Import del componente
+import LanguageSwitcher from "../components/LanguageSwitcher";
+import { useNavigate } from "react-router-dom";
 
 const ProjectPage = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const [mouseOverSidebar, setMouseOverSidebar] = useState(false);
@@ -203,7 +205,9 @@ const ProjectPage = () => {
           <div className="bottom-section">
             <div className="row w-100 justify-content-center">
               <div className="col-md-4">
-                <div className="card first">
+                <div
+                  className="card first"
+                  onClick={() => navigate("/beer-recipe-generator")}>
                   <div className="card-body">
                     <h5 className="card-title">{t("beerGenerator")}</h5>
                     <p className="card-text">{t("descriptionCard1")}</p>
