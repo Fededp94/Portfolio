@@ -9,61 +9,56 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  padding: 20px;
   gap: 20px;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #555555;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.title {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.title h1 {
+  font-family: sans-serif;
+  font-size: 4rem;
+  -webkit-text-stroke: 2px #ffcd00;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.title p {
+  font-size: 1.3rem;
+  font-weight: 550;
+  text-align: justify;
+  margin-top: 30px;
 }
 
 .beer-card {
   position: relative;
-  width: 300px; /* Imposta una larghezza fissa per ogni card */
-  height: 300px; /* Imposta una altezza fissa per ogni card */
+  width: 600px;
+  height: 400px;
   background-color: #fff;
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.beer-card-1 {
-  background-image: url("");
-  background-size: cover;
-  background-position: center;
-}
-
-.beer-card-2 {
-  background-image: url("");
-  background-size: cover;
-  background-position: center;
-}
-
-.beer-card-3 {
-  background-image: url("");
-  background-size: cover;
-  background-position: center;
-}
-
-.beer-card-4 {
-  background-image: url("");
-  background-size: cover;
-  background-position: center;
-}
-
-.beer-card-5 {
-  background-image: url("");
-  background-size: cover;
-  background-position: center;
-}
-
+.beer-card-1,
+.beer-card-2,
+.beer-card-3,
+.beer-card-4,
+.beer-card-5,
 .beer-card-6 {
-  background-image: url("");
   background-size: cover;
   background-position: center;
+  background-image: url("");
 }
 
 .beer-card-video {
+  width: 600px;
+  height: 400px;
   position: relative;
-  height: 300px;
-  width: 300px; /* Mantieni la larghezza coerente con le altre card */
 }
 
 .beer-card-video video {
@@ -81,6 +76,7 @@ html {
   z-index: 1;
   color: white;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -95,4 +91,29 @@ html {
 .beer-card-text {
   font-size: 1rem;
   margin-top: 10px;
+}
+
+/* BARRA DI SCORRIMENTO*/
+
+/*larghezza barra */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* colore sfondo della barra */
+::-webkit-scrollbar-track {
+  background: #555555;
+}
+
+/* colore maniglia della barra di scorrimento */
+::-webkit-scrollbar-thumb {
+  background: #555555;
+  border-radius: 10px;
+  border: 3px solid #ffcd00;
+}
+
+/* hover maniglia barra di scorrimento */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffcd00;
+  border: 3px solid #555555;
 }
