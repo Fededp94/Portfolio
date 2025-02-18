@@ -37,22 +37,47 @@ html {
 
 .beer-card {
   position: relative;
-  width: 600px;
+  width: 876px;
   height: 400px;
   background-color: #fff;
   border-radius: 8px;
+  border: solid 4px #333333;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.beer-card-1,
-.beer-card-2,
-.beer-card-3,
-.beer-card-4,
-.beer-card-5,
-.beer-card-6 {
-  background-size: cover;
+.beer-card-1 {
+  background-size: 100% 100%;
   background-position: center;
-  background-image: url("");
+  background-repeat: no-repeat;
+  background-image: url("../images/BrgImages/br\ pag\ 1.JPG");
+}
+
+.beer-card-2 {
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../images/BrgImages/br\ pag\ 2.JPG");
+}
+
+.beer-card-3 {
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../images/BrgImages/br\ pag\ 3.JPG");
+}
+
+.beer-card-4 {
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../images/BrgImages/br\ pag\ 4.JPG");
+}
+
+.beer-card-5 {
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../images/BrgImages/br\ pag\ 5.JPG");
 }
 
 .beer-card-video {
