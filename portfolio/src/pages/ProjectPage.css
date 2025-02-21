@@ -209,7 +209,6 @@ text {
 }
 
 .bottom-section .card {
-  background-color: #fff;
   margin: 1rem;
   border-radius: 10px;
   border: solid 5px #333333;
@@ -225,6 +224,10 @@ text {
 .first {
   position: relative;
   transition: transform 0.7s ease-in-out;
+  background-image: url(../images/CardsProjectPage/LogoBr.jpg) !important;
+  background-position: center;
+  background-position: 0 10px;
+  background-size: cover;
 }
 
 .first:hover {
@@ -319,12 +322,12 @@ text {
   background-color: #e0e0e0;
 }
 
-/* testi */
+/* testi my project */
 
 h4,
 .yellow {
   font-family: sans-serif;
-  font-weight: 600;
+  font-weight: bold !important;
   margin-left: 1.5%;
   font-size: 2rem;
 }

@@ -210,7 +210,6 @@ const ProjectPage = () => {
                   onClick={() => navigate("/beer-recipe-generator")}>
                   <div className="card-body">
                     <h5 className="card-title">{t("beerGenerator")}</h5>
-                    <p className="card-text">{t("descriptionCard1")}</p>
                   </div>
                 </div>
               </div>
@@ -218,7 +217,6 @@ const ProjectPage = () => {
                 <div className="card second">
                   <div className="card-body">
                     <h5 className="card-title">{t("speasy")}</h5>
-                    <p className="card-text">{t("descriptionCard2")}</p>
                   </div>
                 </div>
               </div>
@@ -226,7 +224,6 @@ const ProjectPage = () => {
                 <div className="card third">
                   <div className="card-body">
                     <h5 className="card-title">{t("card3")}</h5>
-                    <p className="card-text">{t("descriptionCard3")}</p>
                   </div>
                 </div>
               </div>

@@ -9,13 +9,14 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
   padding: 20px;
   min-height: 100vh;
   background-color: #555555;
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 .title {
   text-align: center;
   font-family: sans-serif;
@@ -33,6 +34,16 @@ html {
   font-weight: 550;
   text-align: justify;
   margin-top: 30px;
+}
+
+.beer-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+  gap: 20px;
+  flex-direction: row;
 }
 
 .beer-card {
@@ -81,7 +92,7 @@ html {
 }
 
 .beer-card-video {
-  width: 600px;
+  width: 876px;
   height: 400px;
   position: relative;
 }
@@ -113,9 +124,15 @@ html {
   font-weight: bold;
 }
 
+/* Stile del testo che compare lato slide */
 .beer-card-text {
-  font-size: 1rem;
-  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: 550;
+  padding: 10px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: justify;
+  color: #24252a;
 }
 
 /* BARRA DI SCORRIMENTO*/
@@ -141,4 +158,42 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #ffcd00;
   border: 3px solid #555555;
+}
+
+/* Colori per linguaggi */
+
+.tech-0 {
+  color: #e34f26;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tech-1 {
+  color: #2965f1;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tech-2 {
+  color: #f0db4f;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tech-3 {
+  color: #9800fd;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tech-4 {
+  color: #b07219;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tech-5 {
+  color: lightgreen;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
