@@ -1,14 +1,45 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { FaBackward, FaPause, FaPlay, FaForward } from "react-icons/fa";
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import Video from "../images/BrgImages/BrFunctions.mp4";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../pages/BeerRecipeGeneratorPage.css";
 
 const BeerRecipeGeneratorPage = () => {
   const { t } = useTranslation();
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [controlsVisible, setControlsVisible] = useState(false);
+
   const technologies = t("DescrizioneBrG.technologies", {
     returnObjects: true,
   });
+
+  // Funzione per Play/Pausa
+  const handlePlayPause = () => {
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  // Avanzare di 7 secondi
+  const handleForward = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime += 7;
+    }
+  };
+
+  // Tornare indietro di 7 secondi
+  const handleBackward = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime -= 7;
+    }
+  };
 
   return (
     <div className="beer-recipe-container">
@@ -20,7 +51,6 @@ const BeerRecipeGeneratorPage = () => {
           {technologies.map((tech, index) => (
             <React.Fragment key={tech}>
               <span className={`tech-${index}`}>{tech}</span>
-
               {index < technologies.length - 1 && ", "}
             </React.Fragment>
           ))}
@@ -68,12 +98,30 @@ const BeerRecipeGeneratorPage = () => {
       </div>
 
       {/* Video Card */}
-      <div className="beer-card-container">
+      <div
+        className="beer-card-container"
+        onMouseEnter={() => setControlsVisible(true)}
+        onMouseLeave={() => setControlsVisible(false)}>
         <div className="beer-card beer-card-video">
-          <video autoPlay muted loop>
-            <source src="path/to/video2.mp4" type="video/mp4" />
+          <video ref={videoRef} autoPlay muted loop>
+            <source src={Video} type="video/mp4" />
           </video>
+
+          {controlsVisible && (
+            <div className="video-controls">
+              <button onClick={handleBackward}>
+                <FaBackward />
+              </button>
+              <button onClick={handlePlayPause}>
+                {isPlaying ? <FaPause /> : <FaPlay />}
+              </button>
+              <button onClick={handleForward}>
+                <FaForward />
+              </button>
+            </div>
+          )}
         </div>
+
         <div className="beer-card-text">
           <p>{t("cardDescrizioneVideo")}</p>
         </div>
