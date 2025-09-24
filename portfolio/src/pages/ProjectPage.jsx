@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import "../pages/ProjectPage.css";
 import foto from "../images/ProfiloImg.jpg";
+import logoBr from "../images/CardsProjectPage/LogoBr.jpg";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import { useNavigate } from "react-router-dom";
 
@@ -13,14 +14,12 @@ const ProjectPage = () => {
   const [mouseOverSidebar, setMouseOverSidebar] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 992);
 
-  // Gestione breakpoint per distinguere desktop vs mobile
   useEffect(() => {
     const onResize = () => setIsDesktop(window.innerWidth >= 992);
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Desktop: apri/chiudi con mouse vicino al bordo sinistro
   useEffect(() => {
     if (!isDesktop) return;
     const handleMouseMove = (e) => {
@@ -50,11 +49,9 @@ const ProjectPage = () => {
     }
   };
 
-  // Mobile: hamburger toggles
   const openMobileSidebar = () => setSidebarVisible(true);
   const closeMobileSidebar = () => setSidebarVisible(false);
 
-  // Aggiorna progress bar e donut quando la sidebar è visibile
   useEffect(() => {
     const progressBars = document.querySelectorAll(".progress-bar-fill");
     progressBars.forEach((bar) => {
@@ -78,7 +75,6 @@ const ProjectPage = () => {
 
   return (
     <div className="container-fluid container-full-height">
-      {/* HAMBURGER: solo mobile, visibile SOLO quando la sidebar è chiusa */}
       {!isDesktop && !sidebarVisible && (
         <button
           className="mobile-hamburger d-lg-none"
@@ -90,7 +86,6 @@ const ProjectPage = () => {
         </button>
       )}
 
-      {/* OVERLAY cliccabile: solo mobile e solo quando aperta */}
       {sidebarVisible && !isDesktop && (
         <div
           className="mobile-overlay"
@@ -106,7 +101,6 @@ const ProjectPage = () => {
           } ${!isDesktop ? "sidebar-mobile" : ""}`}
           onMouseEnter={handleMouseEnterSidebar}
           onMouseLeave={handleMouseLeaveSidebar}>
-          {/* Bottone chiudi: solo mobile, X senza sfondo */}
           {!isDesktop && (
             <button
               className="mobile-close"
@@ -215,6 +209,8 @@ const ProjectPage = () => {
               </svg>
             </div>
           </div>
+
+          {!isDesktop && sidebarVisible && <LanguageSwitcher />}
         </div>
 
         {/* MAIN CONTENT */}
@@ -223,22 +219,25 @@ const ProjectPage = () => {
           <div className="top-section">
             <div className="main-card">
               <h3 className="main-card-text">
-                eat <span className="parentesi1">&#40;</span>
-                &nbsp;<span className="parentesi1">&#41;</span>; code{" "}
-                <span className="parentesi2">&#40;</span>
-                &nbsp;<span className="parentesi2">&#41;</span>; sleep{" "}
-                <span className="parentesi3">&#40;</span>
-                &nbsp;<span className="parentesi3">&#41;</span>; code{" "}
-                <span className="parentesi4">&#40;</span>
-                &nbsp;<span className="parentesi4">&#41;</span>; repeat{" "}
-                <span className="parentesi5">&#40;</span>
-                &nbsp;<span className="parentesi5">&#41;</span>;
+                eat <span className="parentesi1">&#40;</span>&nbsp;
+                <span className="parentesi1">&#41;</span>; code{" "}
+                <span className="parentesi2">&#40;</span>&nbsp;
+                <span className="parentesi2">&#41;</span>; sleep{" "}
+                <span className="parentesi3">&#40;</span>&nbsp;
+                <span className="parentesi3">&#41;</span>; code{" "}
+                <span className="parentesi4">&#40;</span>&nbsp;
+                <span className="parentesi4">&#41;</span>; repeat{" "}
+                <span className="parentesi5">&#40;</span>&nbsp;
+                <span className="parentesi5">&#41;</span>;
               </h3>
             </div>
           </div>
+
+          {/* TITOLO SEZIONE PROGETTI */}
           <h4>
-            {t("h4MyProject")} <span className="yellow">3+</span>
+            {t("h4MyProject")} <span className="yellow">2+</span>
           </h4>
+
           {/* SEZIONE INFERIORE */}
           <div className="bottom-section">
             <div className="row w-100 justify-content-center">
@@ -248,13 +247,18 @@ const ProjectPage = () => {
                   onClick={() => navigate("/beer-recipe-generator")}>
                   <div className="card-body">
                     <h5 className="card-title">{t("beerGenerator")}</h5>
+                    <img
+                      src={logoBr}
+                      alt="Beer Recipe Generator"
+                      className="project-thumb"
+                    />
                   </div>
                 </div>
               </div>
               <div className="col-md-4">
                 <div className="card second">
                   <div className="card-body">
-                    <h5 className="card-title">{t("speasy")}</h5>
+                    <h5 className="card-title">{t("brEvents")}</h5>
                   </div>
                 </div>
               </div>
@@ -267,10 +271,12 @@ const ProjectPage = () => {
               </div>
             </div>
           </div>
+
+          {(isDesktop || (!isDesktop && !sidebarVisible)) && (
+            <LanguageSwitcher />
+          )}
         </div>
       </div>
-
-      <LanguageSwitcher />
     </div>
   );
 };

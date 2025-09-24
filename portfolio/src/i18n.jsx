@@ -6,8 +6,8 @@ const resources = {
     translation: {
       profileTitle: "Full Stack Developer with a great passion for Frontend",
       beerGenerator: "Beer Recipe Generator",
-      speasy: "Speasy",
-      card3: "Quiz",
+      brEvents: "BR Events",
+      card3: "Work in progress...",
       italian: "Italian",
       english: "English",
       h4MyProject: "My Projects",
@@ -46,8 +46,8 @@ const resources = {
       profileTitle:
         "Sviluppatore Full Stack con una grande passione per il Frontend",
       beerGenerator: "Beer Recipe Generator",
-      speasy: "Speasy",
-      card3: "Quiz",
+      brEvents: "BR Events",
+      card3: "Work in progress...",
       italian: "Italiano",
       english: "Inglese",
       h4MyProject: "I Miei Progetti",
