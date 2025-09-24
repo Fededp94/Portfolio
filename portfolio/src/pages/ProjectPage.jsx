@@ -11,8 +11,18 @@ const ProjectPage = () => {
 
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const [mouseOverSidebar, setMouseOverSidebar] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 992);
 
+  // Gestione breakpoint per distinguere desktop vs mobile
   useEffect(() => {
+    const onResize = () => setIsDesktop(window.innerWidth >= 992);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  // Desktop: apri/chiudi con mouse vicino al bordo sinistro
+  useEffect(() => {
+    if (!isDesktop) return;
     const handleMouseMove = (e) => {
       if (e.clientX < 20) {
         setSidebarVisible(true);
@@ -20,38 +30,36 @@ const ProjectPage = () => {
         setSidebarVisible(false);
       }
     };
-
     window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [mouseOverSidebar]);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseOverSidebar, isDesktop]);
 
   const handleMouseEnterSidebar = () => {
+    if (!isDesktop) return;
     setMouseOverSidebar(true);
     setSidebarVisible(true);
   };
 
   const handleMouseLeaveSidebar = () => {
+    if (!isDesktop) return;
     setMouseOverSidebar(false);
-    if (window.event.clientX < 20) {
+    if (window.event?.clientX < 20) {
       setSidebarVisible(true);
     } else {
       setSidebarVisible(false);
     }
   };
 
-  // Aggiorna progress bar e donut
+  // Mobile: hamburger toggles
+  const openMobileSidebar = () => setSidebarVisible(true);
+  const closeMobileSidebar = () => setSidebarVisible(false);
+
+  // Aggiorna progress bar e donut quando la sidebar è visibile
   useEffect(() => {
     const progressBars = document.querySelectorAll(".progress-bar-fill");
     progressBars.forEach((bar) => {
-      if (sidebarVisible) {
-        const percentage = bar.getAttribute("data-percentage");
-        bar.style.width = `${percentage}%`;
-      } else {
-        bar.style.width = "0%";
-      }
+      const percentage = bar.getAttribute("data-percentage");
+      bar.style.width = sidebarVisible ? `${percentage}%` : "0%";
     });
 
     const donuts = document.querySelectorAll(".donut-progress");
@@ -70,14 +78,44 @@ const ProjectPage = () => {
 
   return (
     <div className="container-fluid container-full-height">
+      {/* HAMBURGER: solo mobile, visibile SOLO quando la sidebar è chiusa */}
+      {!isDesktop && !sidebarVisible && (
+        <button
+          className="mobile-hamburger d-lg-none"
+          aria-label="Apri menu laterale"
+          onClick={openMobileSidebar}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      )}
+
+      {/* OVERLAY cliccabile: solo mobile e solo quando aperta */}
+      {sidebarVisible && !isDesktop && (
+        <div
+          className="mobile-overlay"
+          onClick={closeMobileSidebar}
+          aria-hidden="true"></div>
+      )}
+
       <div className="row row-full-height">
         {/* SIDEBAR */}
         <div
           className={`col-3 sidebar ${
             sidebarVisible ? "sidebar-visible" : "sidebar-hidden"
-          }`}
+          } ${!isDesktop ? "sidebar-mobile" : ""}`}
           onMouseEnter={handleMouseEnterSidebar}
           onMouseLeave={handleMouseLeaveSidebar}>
+          {/* Bottone chiudi: solo mobile, X senza sfondo */}
+          {!isDesktop && (
+            <button
+              className="mobile-close"
+              aria-label="Chiudi menu laterale"
+              onClick={closeMobileSidebar}>
+              ×
+            </button>
+          )}
+
           <div className="card sidebar-card">
             <div className="sidebar-card-img-container">
               <img src={foto} alt="Foto Profilo" className="sidebar-card-img" />

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { FaBackward, FaPause, FaPlay, FaForward } from "react-icons/fa";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -16,7 +16,16 @@ const BeerRecipeGeneratorPage = () => {
     returnObjects: true,
   });
 
-  // Funzione per Play/Pausa
+  // Mostra i controlli sempre su schermi piccoli (niente hover su touch)
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 992px)");
+    const setByMQ = () => setControlsVisible(mq.matches);
+    setByMQ();
+    mq.addEventListener("change", setByMQ);
+    return () => mq.removeEventListener("change", setByMQ);
+  }, []);
+
+  // Play/Pausa
   const handlePlayPause = () => {
     if (videoRef.current.paused) {
       videoRef.current.play();
@@ -27,18 +36,12 @@ const BeerRecipeGeneratorPage = () => {
     }
   };
 
-  // Avanzare di 7 secondi
+  // Avanti/Indietro di 7s
   const handleForward = () => {
-    if (videoRef.current) {
-      videoRef.current.currentTime += 7;
-    }
+    if (videoRef.current) videoRef.current.currentTime += 7;
   };
-
-  // Tornare indietro di 7 secondi
   const handleBackward = () => {
-    if (videoRef.current) {
-      videoRef.current.currentTime -= 7;
-    }
+    if (videoRef.current) videoRef.current.currentTime -= 7;
   };
 
   return (
@@ -58,7 +61,10 @@ const BeerRecipeGeneratorPage = () => {
       </div>
 
       {/* Card 1: Testo a sinistra */}
-      <div className="beer-card-container">
+      <div
+        className="beer-card-container"
+        onMouseEnter={() => setControlsVisible(false)}
+        onMouseLeave={() => setControlsVisible(false)}>
         <div className="beer-card-text">
           <p>{t("cardDescrizione1")}</p>
         </div>
@@ -103,19 +109,23 @@ const BeerRecipeGeneratorPage = () => {
         onMouseEnter={() => setControlsVisible(true)}
         onMouseLeave={() => setControlsVisible(false)}>
         <div className="beer-card beer-card-video">
-          <video ref={videoRef} autoPlay muted loop>
+          <video ref={videoRef} autoPlay muted loop playsInline>
             <source src={Video} type="video/mp4" />
           </video>
 
           {controlsVisible && (
             <div className="video-controls">
-              <button onClick={handleBackward}>
+              <button
+                onClick={handleBackward}
+                aria-label="Indietro di 7 secondi">
                 <FaBackward />
               </button>
-              <button onClick={handlePlayPause}>
+              <button
+                onClick={handlePlayPause}
+                aria-label={isPlaying ? "Pausa" : "Riproduci"}>
                 {isPlaying ? <FaPause /> : <FaPlay />}
               </button>
-              <button onClick={handleForward}>
+              <button onClick={handleForward} aria-label="Avanti di 7 secondi">
                 <FaForward />
               </button>
             </div>
