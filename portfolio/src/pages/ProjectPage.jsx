@@ -5,10 +5,18 @@ import foto from "../images/ProfiloImg.jpg";
 import logoBr from "../images/CardsProjectPage/LogoBr.jpg";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import { useNavigate } from "react-router-dom";
+import { FaLinkedin, FaGithub, FaEnvelope, FaPhone } from "react-icons/fa";
 
 const ProjectPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+
+  const EMAIL = "federicodipresa94@gmail.com";
+  const PHONE_TEXT = "+39 3803470184";
+  const PHONE_TEL = "+39 3803470184";
+  const LINKEDIN_URL =
+    "https://www.linkedin.com/in/federico-di-presa-17800a198/";
+  const GITHUB_URL = "https://github.com/Fededp94";
 
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const [mouseOverSidebar, setMouseOverSidebar] = useState(false);
@@ -42,11 +50,8 @@ const ProjectPage = () => {
   const handleMouseLeaveSidebar = () => {
     if (!isDesktop) return;
     setMouseOverSidebar(false);
-    if (window.event?.clientX < 20) {
-      setSidebarVisible(true);
-    } else {
-      setSidebarVisible(false);
-    }
+    if (window.event?.clientX < 20) setSidebarVisible(true);
+    else setSidebarVisible(false);
   };
 
   const openMobileSidebar = () => setSidebarVisible(true);
@@ -75,6 +80,7 @@ const ProjectPage = () => {
 
   return (
     <div className="container-fluid container-full-height">
+      {/* HAMBURGER: solo mobile, visibile SOLO quando sidebar è chiusa */}
       {!isDesktop && !sidebarVisible && (
         <button
           className="mobile-hamburger d-lg-none"
@@ -86,6 +92,7 @@ const ProjectPage = () => {
         </button>
       )}
 
+      {/* OVERLAY cliccabile: solo mobile e solo quando aperta */}
       {sidebarVisible && !isDesktop && (
         <div
           className="mobile-overlay"
@@ -101,6 +108,7 @@ const ProjectPage = () => {
           } ${!isDesktop ? "sidebar-mobile" : ""}`}
           onMouseEnter={handleMouseEnterSidebar}
           onMouseLeave={handleMouseLeaveSidebar}>
+          {/* Bottone chiudi: solo mobile, X senza sfondo */}
           {!isDesktop && (
             <button
               className="mobile-close"
@@ -210,7 +218,45 @@ const ProjectPage = () => {
             </div>
           </div>
 
-          {!isDesktop && sidebarVisible && <LanguageSwitcher />}
+          {/* 🔗 CONTATTI */}
+          <div className="contacts">
+            <a
+              className="contact-item"
+              href={`mailto:${EMAIL}`}
+              aria-label="Invia email">
+              <FaEnvelope className="contact-ico" />
+              <span>{EMAIL}</span>
+            </a>
+
+            <a
+              className="contact-item"
+              href={`tel:${PHONE_TEL}`}
+              aria-label="Chiama telefono">
+              <FaPhone className="contact-ico" />
+              <span>{PHONE_TEXT}</span>
+            </a>
+
+            <div className="contact-icons">
+              <a
+                className="linkedin"
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Profilo LinkedIn"
+                title="LinkedIn">
+                <FaLinkedin />
+              </a>
+              <a
+                className="github"
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Profilo GitHub"
+                title="GitHub">
+                <FaGithub />
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* MAIN CONTENT */}
@@ -272,6 +318,7 @@ const ProjectPage = () => {
             </div>
           </div>
 
+          {/* LanguageSwitcher (desktop SEMPRE; mobile solo sidebar CHIUSA) */}
           {(isDesktop || (!isDesktop && !sidebarVisible)) && (
             <LanguageSwitcher />
           )}
