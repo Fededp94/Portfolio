@@ -79,6 +79,22 @@
   color: #929292;
   text-align: center;
 }
+/* Nome e cognome side bar */
+.card-body h4 {
+  color: #ffcd00;
+  background: linear-gradient(0deg, rgba(255, 149, 0, 1) 0%, #ffcd00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+}
+
+.card-body p {
+  color: #cecece;
+  font-weight: 700;
+}
 .card-body {
   padding: 10px;
 }

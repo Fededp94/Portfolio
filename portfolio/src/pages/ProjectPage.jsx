@@ -123,7 +123,7 @@ const ProjectPage = () => {
               <img src={foto} alt="Foto Profilo" className="sidebar-card-img" />
             </div>
             <div className="card-body">
-              <h5 className="card-title">Federico Di Presa</h5>
+              <h4 className="card-title">Federico Di Presa</h4>
               <p className="card-text">{t("profileTitle")}</p>
             </div>
           </div>
