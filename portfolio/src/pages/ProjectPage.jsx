@@ -80,7 +80,7 @@ const ProjectPage = () => {
 
   return (
     <div className="container-fluid container-full-height">
-      {/* HAMBURGER: solo mobile, visibile SOLO quando sidebar è chiusa */}
+      {/* HAMBURGER: solo mobile, visibile solo quando sidebar è chiusa */}
       {!isDesktop && !sidebarVisible && (
         <button
           className="mobile-hamburger d-lg-none"

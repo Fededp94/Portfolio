@@ -17,6 +17,30 @@ html {
   overflow-x: hidden;
 }
 
+/* Freccia back in alto a sinistra: solo icona bianca */
+.back-arrow {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1100;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.2s ease;
+}
+
+.back-arrow:hover {
+  transform: scale(1.1);
+  color: #ffcd00;
+}
+
+.back-arrow:focus-visible {
+  outline: 2px solid #ffcd00;
+  outline-offset: 4px;
+}
+
 .title {
   text-align: center;
   font-family: sans-serif;
@@ -196,7 +220,6 @@ html {
   .beer-card-container {
     grid-template-columns: 1fr;
   }
-  /* su mobile: testo sopra, card sotto */
   .beer-card-container > .beer-card-text {
     order: 1;
   }
@@ -215,5 +238,11 @@ html {
   .beer-recipe-container {
     gap: 28px;
     padding: 16px;
+  }
+
+  .back-arrow {
+    top: 12px;
+    left: 12px;
+    font-size: 2.2rem;
   }
 }

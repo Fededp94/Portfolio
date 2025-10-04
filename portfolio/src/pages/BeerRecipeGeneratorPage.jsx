@@ -1,6 +1,13 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { FaBackward, FaPause, FaPlay, FaForward } from "react-icons/fa";
+import {
+  FaBackward,
+  FaPause,
+  FaPlay,
+  FaForward,
+  FaArrowLeft,
+} from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import Video from "../images/BrgImages/BrFunctions.mp4";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,6 +18,7 @@ const BeerRecipeGeneratorPage = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [controlsVisible, setControlsVisible] = useState(false);
+  const navigate = useNavigate();
 
   const technologies = t("DescrizioneBrG.technologies", {
     returnObjects: true,
@@ -46,6 +54,14 @@ const BeerRecipeGeneratorPage = () => {
 
   return (
     <div className="beer-recipe-container">
+      {/* Freccia back in alto a sinistra */}
+      <button
+        className="back-arrow"
+        aria-label="Torna alla ProjectPage"
+        onClick={() => navigate("/projects")}>
+        <FaArrowLeft />
+      </button>
+
       <div className="title">
         <h1>BEER RECIPE GENERATOR</h1>
 
