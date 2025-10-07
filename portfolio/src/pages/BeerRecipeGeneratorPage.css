@@ -90,7 +90,7 @@ html {
 .beer-card-3,
 .beer-card-4,
 .beer-card-5 {
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
 }

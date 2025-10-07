@@ -1,5 +1,3 @@
-/* src/pages/BREventsPage.css */
-
 body,
 html {
   height: 100%;
@@ -90,18 +88,18 @@ html {
 .events-card-3,
 .events-card-4,
 .events-card-5 {
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Sostituisci i path con le tue immagini per BR Events 
 .events-card-1 {
-  background-image: url("../images/BrEvents/br_e_pag_1.jpg");
+  background-image: url("../images/CardsBREvents/Card1.JPG");
 }
 .events-card-2 {
-  background-image: url("../images/BrEvents/br_e_pag_2.jpg");
+  background-image: url("../images/CardsBREvents/Card2.JPG");
 }
+/*
 .events-card-3 {
   background-image: url("../images/BrEvents/br_e_pag_3.jpg");
 }
@@ -111,6 +109,8 @@ html {
 .events-card-5 {
   background-image: url("../images/BrEvents/br_e_pag_5.jpg");
 }
+*/
+/*
 
 .events-card-video {
   width: 100%;
@@ -207,6 +207,11 @@ html {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 .events-tech-5 {
+  color: lightgoldenrodyellow;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.events-tech-6 {
   color: lightgreen;
   -webkit-text-stroke: 0.5px black;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);

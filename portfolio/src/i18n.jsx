@@ -46,12 +46,13 @@ const resources = {
         description:
           "BR Events is a platform to create, publish, and manage events with email signups and automatic reminders. Technologies:",
         technologies: [
-          "React",
-          "Bootstrap",
-          "Spring Boot",
-          "PostgreSQL",
-          "JWT",
-          "Cloudinary",
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "React.js",
+          "Java",
+          "PostegreSQL",
+          "SpringBoot",
         ],
       },
       BrE_cardDescrizione1:
@@ -114,12 +115,13 @@ const resources = {
         description:
           "BR Events è la piattaforma per creare, pubblicare e gestire eventi con iscrizioni email e reminder automatici. Tecnologie:",
         technologies: [
-          "React",
-          "Bootstrap",
-          "Spring Boot",
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "React.Js",
+          "Java",
           "PostgreSQL",
-          "JWT",
-          "Cloudinary",
+          "SpringBoot",
         ],
       },
       BrE_cardDescrizione1:
