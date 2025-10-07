@@ -516,3 +516,20 @@ text {
     display: none !important;
   }
 }
+
+/* --- Fix clickability cards --- */
+.bottom-section .card {
+  cursor: pointer;
+}
+
+/* Evita che qualche layer piatto copra la seconda card */
+.bottom-section .card.second {
+  position: relative;
+  z-index: 2;
+}
+
+/* Metti il contenuto principale sopra a eventuali layer a z-index basso */
+.main-content {
+  position: relative;
+  z-index: 1;
+}

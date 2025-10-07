@@ -12,9 +12,12 @@ const resources = {
       english: "English",
       h4MyProject: "My Projects",
 
+      // =======================
+      // BEER RECIPE GENERATOR
+      // =======================
       DescrizioneBrG: {
         description:
-          "Beer Recipe Generator is a fun and interactive web app designed to bring beer lovers and curious minds closer to the world of homebrewing. Structured like a mini-game, it lets you create real craft beer recipes using authentic parameters. As you build your recipe, you can see the beer's color, alcohol content, and the ideal amount of malts and hops in real time, with detailed descriptions of each ingredient. The app also includes a login feature so you can save and revisit your recipes anytime. Once your recipe is complete, you can download it as a PDF with all the instructions to brew your beer at home. Beer Recipe Generator isn't just a practical tool, it's an educational experience that lets you explore the art of craft beer making! 🍻\n\nLanguages and Frameworks used:",
+          "Beer Recipe Generator is a playful web app for beer enthusiasts to create real craft recipes with live color, alcohol, and ingredient details. Users can log in, save recipes, and download full brewing instructions as a PDF. It’s both practical and educational. 🍻",
         technologies: [
           "HTML5",
           "CSS3",
@@ -25,22 +28,47 @@ const resources = {
         ],
       },
       cardDescrizione1:
-        "The first page features several buttons Login, which grants access if the user is already registered; Signup, which allows the user to register; and the let's Start Button, which opens a brand new registration form." +
-        " Once the registration is complete and the user confirms they are at least 18+, they can proceed.",
+        "The first page has Login, Signup, and Let’s Start buttons. After registering and confirming they’re 18+, users can continue.",
       cardDescrizione2: "User login tab",
       cardDescrizione3:
-        "This is the recipe creation page with buttons to choose malts, hops, and yeasts. The beer pint on the right changes color based on selected malts. You can name your beer at the top left and access a help banner at the" +
-        "top right. The Generate button creates an editable recipe draft.",
+        "The recipe page lets you pick malts, hops, and yeasts. The pint changes color with malts. You can name the beer, access help, and generate an editable draft.",
       cardDescrizione4:
-        "On this page, users see a summary of their recipe and can adjust malt amounts for 25 liters of beer. The game shows the beer's alcohol content in real-time. After making" +
-        "adjustments, users can save the recipe, skip saving and view saved recipes, or start over and return to the homepage.",
+        "This page shows the recipe summary, lets users adjust malts for 25 L, displays real-time alcohol content, and offers options to save, view saved recipes, or restart.",
       cardDescrizione5:
-        "On this final page, the user will find their saved recipes. When a recipe is selected, a detailed summary will pop up, along with a button to download a PDF of the full " +
-        "brewing process for that recipe. There's also a button at the bottom left to return to the home page.",
+        "This page lists saved recipes. Selecting one shows details and a button to download its brewing PDF. A button at the bottom left returns to the homepage.",
       cardDescrizioneVideo:
         "Here’s a short video showing how this game works! Cheers!",
+
+      // =======================
+      // BR EVENTS
+      // =======================
+      DescrizioneBrE: {
+        description:
+          "BR Events is a platform to create, publish, and manage events with email signups and automatic reminders. Technologies:",
+        technologies: [
+          "React",
+          "Bootstrap",
+          "Spring Boot",
+          "PostgreSQL",
+          "JWT",
+          "Cloudinary",
+        ],
+      },
+      BrE_cardDescrizione1:
+        "Public homepage: filter events by location/month and subscribe to the newsletter.",
+      BrE_cardDescrizione2:
+        "Admin panel: create, edit, delete events and manage images.",
+      BrE_cardDescrizione3:
+        "JWT authentication: admin-only access with backend security.",
+      BrE_cardDescrizione4:
+        "HTML email reminders: automatic send two days before events.",
+      BrE_cardDescrizione5:
+        "Cloudinary integration and deploy: media handling and publishing.",
+      BrE_cardDescrizioneVideo:
+        "Quick demo of the flow: create event, preview, and reminders.",
     },
   },
+
   it: {
     translation: {
       profileTitle:
@@ -51,21 +79,13 @@ const resources = {
       italian: "Italiano",
       english: "Inglese",
       h4MyProject: "I Miei Progetti",
+
+      // =======================
+      // BEER RECIPE GENERATOR
+      // =======================
       DescrizioneBrG: {
         description:
-          "Beer Recipe Generator è un'app web pensata per avvicinare appassionati " +
-          "e curiosi al mondo dell'homebrewing in modo divertente e interattivo. " +
-          "Strutturata come un mini-gioco, consente di creare vere ricette di " +
-          "birra artigianale utilizzando parametri reali. Durante la creazione, " +
-          "l'utente può scoprire in tempo reale il colore della birra, il grado " +
-          "alcolico e la quantità ideale di malti e luppoli, con descrizioni " +
-          "dettagliate di ogni ingrediente. L'app offre anche la funzionalità di " +
-          "login per salvare e consultare le proprie ricette in qualsiasi " +
-          "momento. Una volta completata la ricetta, sarà possibile scaricarla in " +
-          "formato pdf con tutte le istruzioni per realizzare la birra " +
-          "direttamente a casa. Beer Recipe Generator non è solo uno strumento " +
-          "pratico, ma anche un'esperienza educativa per esplorare l'arte della " +
-          "birra fai-da-te! 🍻 Linguaggi e Frameworks utilizzati:",
+          "Beer Recipe Generator è un’app web interattiva per creare vere ricette di birra artigianale con colore, alcol e ingredienti in tempo reale. Permette di accedere, salvare le ricette e scaricare il PDF con le istruzioni. È pratica ed educativa. 🍻",
         technologies: [
           "HTML5",
           "CSS3",
@@ -76,27 +96,51 @@ const resources = {
         ],
       },
       cardDescrizione1:
-        "La prima pagina si presenta con vari pulsanti: Login, permette l'accesso all'utente se precedentemente iscritto, Singup, permette la registrazione all'utente" +
-        " e il tasto Iniziamo che apre una scheda di registrazione ex novo. Una volta fatta la registrazione e confermato di avere almeno 18+, l'utente potrà procedere",
+        "La prima pagina offre Login, Signup e Let’s Start. Dopo la registrazione e la conferma di avere 18+, l’utente può procedere.",
       cardDescrizione2: "Tab di Login per l'utente",
       cardDescrizione3:
-        "Questa è la pagina di creazione ricette con pulsanti per scegliere malti, luppoli e lieviti. La pinta a destra cambia colore in base ai malti selezionati." +
-        "Puoi dare un nome alla birra in alto a sinistra e accedere a un banner informativo in alto a destra. Il pulsante Genera crea una bozza modificabile della ricetta.",
+        "La pagina ricetta consente di scegliere malti, luppoli e lieviti. La pinta cambia colore in base ai malti. Puoi dare un nome alla birra, accedere all’aiuto e generare una bozza modificabile.",
       cardDescrizione4:
-        "In questa pagina, l’utente vede un riepilogo della ricetta e può modificare la quantità di malto per 25 litri di birra. Il gioco mostra in tempo reale il contenuto" +
-        "alcolico della birra. Dopo le modifiche, può salvare la ricetta, saltare il salvataggio per vedere le ricette salvate o ricominciare tornando alla home.",
+        "Questa pagina mostra il riepilogo della ricetta, consente di regolare i malti per 25 L, visualizza l’alcol in tempo reale e permette di salvare, vedere le ricette salvate o ricominciare.",
       cardDescrizione5:
-        "In questa ultima pagina, l'utente, si troverà tra le sue ricette salvate. Se una ricetta viene selezionata, si aprirà una scheda con un ulteriore riepilogo e con un pulsante " +
-        "che permetterà di scaricare il pdf con l'intero procedimento sviluppato per la ricetta selezionata. Con il pulsante in basso a sinistra si torna alla home page",
+        "Questa pagina elenca le ricette salvate. Selezionandone una, appare il riepilogo con un pulsante per scaricare il PDF del processo. Un pulsante in basso a sinistra riporta alla homepage.",
       cardDescrizioneVideo:
         "Ecco un breve video sul funzionamento di questo gioco! Cheers!",
+
+      // =======================
+      // BR EVENTS
+      // =======================
+      DescrizioneBrE: {
+        description:
+          "BR Events è la piattaforma per creare, pubblicare e gestire eventi con iscrizioni email e reminder automatici. Tecnologie:",
+        technologies: [
+          "React",
+          "Bootstrap",
+          "Spring Boot",
+          "PostgreSQL",
+          "JWT",
+          "Cloudinary",
+        ],
+      },
+      BrE_cardDescrizione1:
+        "Homepage pubblica: filtra gli eventi per luogo/mese e iscriviti alla newsletter.",
+      BrE_cardDescrizione2:
+        "Pannello Admin: crea, modifica, elimina eventi e gestisci le immagini.",
+      BrE_cardDescrizione3:
+        "Autenticazione JWT: accesso riservato per l’admin, sicurezza lato backend.",
+      BrE_cardDescrizione4:
+        "Reminder email HTML: invio automatico due giorni prima dell’evento.",
+      BrE_cardDescrizione5:
+        "Integrazione Cloudinary e deploy: gestione media e pubblicazione online.",
+      BrE_cardDescrizioneVideo:
+        "Demo rapida del flusso: creazione evento, anteprima e reminder.",
     },
   },
 };
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: "en",
+  lng: "en", // lingua di default
   interpolation: {
     escapeValue: false,
   },

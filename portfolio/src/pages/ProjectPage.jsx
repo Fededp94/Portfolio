@@ -108,7 +108,6 @@ const ProjectPage = () => {
           } ${!isDesktop ? "sidebar-mobile" : ""}`}
           onMouseEnter={handleMouseEnterSidebar}
           onMouseLeave={handleMouseLeaveSidebar}>
-          {/* Bottone chiudi: solo mobile, X senza sfondo */}
           {!isDesktop && (
             <button
               className="mobile-close"
@@ -301,13 +300,32 @@ const ProjectPage = () => {
                   </div>
                 </div>
               </div>
+
               <div className="col-md-4">
-                <div className="card second">
-                  <div className="card-body">
+                <div
+                  className="card second"
+                  onClick={() => {
+                    if (!isDesktop && sidebarVisible) setSidebarVisible(false);
+                    navigate("/br-events");
+                  }}
+                  role="button"
+                  aria-label="Apri BR Events"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      if (!isDesktop && sidebarVisible)
+                        setSidebarVisible(false);
+                      navigate("/br-events");
+                    }
+                  }}>
+                  <div
+                    className="card-body"
+                    onClick={() => navigate("/br-events")}>
                     <h5 className="card-title">{t("brEvents")}</h5>
                   </div>
                 </div>
               </div>
+
               <div className="col-md-4">
                 <div className="card third">
                   <div className="card-body">

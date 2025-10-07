@@ -1,0 +1,244 @@
+/* src/pages/BREventsPage.css */
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.events-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #555555;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Back arrow */
+.events-back-arrow {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1100;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.2s ease;
+}
+.events-back-arrow:hover {
+  transform: scale(1.1);
+  color: #0099ff;
+}
+.events-back-arrow:focus-visible {
+  outline: 2px solid #ffcd00;
+  outline-offset: 4px;
+}
+
+/* Titolo */
+.events-title {
+  text-align: center;
+  font-family: sans-serif;
+}
+.events-title h1 {
+  font-family: sans-serif;
+  font-size: clamp(2rem, 3vw + 1rem, 4rem);
+  -webkit-text-stroke: 2px #0099ff;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+.events-title p {
+  font-size: clamp(1rem, 0.6vw + 0.9rem, 1.2rem);
+  font-weight: 550;
+  text-align: left;
+  margin-top: 30px;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+/* Grid card */
+.events-card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+  gap: 20px;
+}
+
+.events-card {
+  position: relative;
+  width: 100%;
+  max-width: 876px;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  border: solid 4px #333333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.events-card-1,
+.events-card-2,
+.events-card-3,
+.events-card-4,
+.events-card-5 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Sostituisci i path con le tue immagini per BR Events 
+.events-card-1 {
+  background-image: url("../images/BrEvents/br_e_pag_1.jpg");
+}
+.events-card-2 {
+  background-image: url("../images/BrEvents/br_e_pag_2.jpg");
+}
+.events-card-3 {
+  background-image: url("../images/BrEvents/br_e_pag_3.jpg");
+}
+.events-card-4 {
+  background-image: url("../images/BrEvents/br_e_pag_4.jpg");
+}
+.events-card-5 {
+  background-image: url("../images/BrEvents/br_e_pag_5.jpg");
+}
+
+.events-card-video {
+  width: 100%;
+  max-width: 876px;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+.events-card-video video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+*/
+/* Video controls */
+.events-video-controls {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+.events-video-controls button {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: clamp(44px, 5vw, 56px);
+  height: clamp(44px, 5vw, 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(18px, 2.2vw, 22px);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.events-video-controls button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Testo card */
+.events-card-text {
+  font-size: clamp(1rem, 0.6vw + 0.9rem, 1.15rem);
+  font-weight: 550;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 420px;
+  text-align: left;
+  color: #24252a;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 20px;
+}
+::-webkit-scrollbar-track {
+  background: #555555;
+}
+::-webkit-scrollbar-thumb {
+  background: #555555;
+  border-radius: 10px;
+  border: 3px solid #0099ff;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0099ff;
+  border: 3px solid #555555;
+}
+
+/* Colori tecnologie */
+.events-tech-0 {
+  color: #e34f26;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.events-tech-1 {
+  color: #2965f1;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.events-tech-2 {
+  color: #f0db4f;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.events-tech-3 {
+  color: #9800fd;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.events-tech-4 {
+  color: #b07219;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.events-tech-5 {
+  color: lightgreen;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Breakpoints */
+@media (max-width: 992px) {
+  .events-card-container {
+    grid-template-columns: 1fr;
+  }
+  .events-card-container > .events-card-text {
+    order: 1;
+  }
+  .events-card-container > .events-card {
+    order: 2;
+  }
+  .events-title p {
+    text-align: left;
+  }
+}
+
+@media (max-width: 576px) {
+  .events-title h1 {
+    -webkit-text-stroke: 1px #0099ff;
+  }
+  .events-container {
+    gap: 28px;
+    padding: 16px;
+  }
+  .events-back-arrow {
+    top: 12px;
+    left: 12px;
+    font-size: 2.2rem;
+  }
+}

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectPage";
 import BeerRecipeGeneratorPage from "./pages/BeerRecipeGeneratorPage";
+import BREventsPage from "./pages/BREventsPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./i18n";
@@ -17,6 +18,7 @@ function App() {
           path="/beer-recipe-generator"
           element={<BeerRecipeGeneratorPage />}
         />
+        <Route path="/br-events" element={<BREventsPage />} />
       </Routes>
     </Router>
   );
