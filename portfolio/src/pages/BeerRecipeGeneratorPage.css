@@ -17,7 +17,6 @@ html {
   overflow-x: hidden;
 }
 
-/* Freccia back in alto a sinistra: solo icona bianca */
 .back-arrow {
   position: fixed;
   top: 16px;
@@ -95,7 +94,6 @@ html {
   background-repeat: no-repeat;
 }
 
-/* ✅ spazi codificati con %20 (niente backslash) */
 .beer-card-1 {
   background-image: url("../images/BrgImages/br%20pag%201.JPG");
 }
@@ -125,7 +123,6 @@ html {
   height: 100%;
 }
 
-/* Controlli video: touch-friendly */
 .video-controls {
   position: absolute;
   bottom: 15px;
@@ -166,20 +163,24 @@ html {
   color: #24252a;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
+.beer-recipe-container {
+  scrollbar-color: #ffcd00 #555555;
+  scrollbar-width: thin;
+}
+/* Chromium/WebKit */
+.beer-recipe-container::-webkit-scrollbar {
   width: 20px;
 }
-::-webkit-scrollbar-track {
+.beer-recipe-container::-webkit-scrollbar-track {
   background: #555555;
 }
-::-webkit-scrollbar-thumb {
-  background: #555555;
-  border-radius: 10px;
-  border: 3px solid #ffcd00;
-}
-::-webkit-scrollbar-thumb:hover {
+.beer-recipe-container::-webkit-scrollbar-thumb {
   background: #ffcd00;
+  border-radius: 10px;
+  border: 3px solid #555555;
+}
+.beer-recipe-container::-webkit-scrollbar-thumb:hover {
+  background: #ffb800;
   border: 3px solid #555555;
 }
 

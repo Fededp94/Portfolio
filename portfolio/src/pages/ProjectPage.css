@@ -2,25 +2,34 @@
   --gutter: 12px;
   --lang-nudge: 6px;
   --lang-gap: 10px;
-
-  /* dimensioni icone social */
   --contact-icon-size-desktop: 48px;
   --contact-icon-size-mobile: 48px;
   --contact-icon-gap: 14px;
-
-  /* area di respiro in fondo alla sidebar mobile (per contenuto interno) */
   --sidebar-bottom-safe: 24px;
+
+  /* CARD look */
+  --card-radius: 14px;
+  --card-border: #333;
+  --card-shadow: 0 10px 18px rgba(0, 0, 0, 0.22);
+  --overlay-grad: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.45) 38%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  --overlay-height: 42%;
+  --title-size: clamp(1rem, 1.4vw, 1.15rem);
 }
 
 .container-full-height {
   height: 100vh;
-  background-color: white;
+  background: #fff;
 }
 .row-full-height {
   height: 100%;
 }
 
-/* Sidebar */
+/* Sidebar (immutata) */
 .sidebar-hidden {
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
@@ -31,8 +40,8 @@
 }
 .sidebar {
   height: 100%;
-  background-color: #333333;
-  color: white;
+  background: #333;
+  color: #fff;
   padding: 1rem;
   position: fixed;
   top: 0;
@@ -50,13 +59,11 @@
   background-color: yellow;
   border-radius: 10px;
 }
-
-/* Sidebar card */
 .sidebar-card {
   width: 100%;
   margin-bottom: 10px;
   margin-top: -5px;
-  background-color: #444444 !important;
+  background: #444 !important;
   text-align: center;
 }
 .sidebar-card-img-container {
@@ -70,7 +77,7 @@
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid #333333;
+  border: 3px solid #333;
 }
 .card-title {
   font-size: 1.5rem;
@@ -79,9 +86,7 @@
   color: #929292;
   text-align: center;
 }
-/* Nome e cognome side bar */
 .card-body h4 {
-  color: #ffcd00;
   background: linear-gradient(0deg, rgba(255, 149, 0, 1) 0%, #ffcd00 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -90,7 +95,6 @@
   text-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
   font-weight: 700;
 }
-
 .card-body p {
   color: #cecece;
   font-weight: 700;
@@ -117,7 +121,7 @@
   position: relative;
   width: 100%;
   height: 20px;
-  background-color: #333;
+  background: #333;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
@@ -137,7 +141,7 @@
   transform: translate(-50%, -50%);
   font-size: 0.85rem;
   font-weight: 600;
-  color: white;
+  color: #fff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   z-index: 1;
 }
@@ -168,7 +172,7 @@
 }
 text {
   font-size: 1rem;
-  fill: white;
+  fill: #fff;
   font-weight: bold;
 }
 
@@ -178,7 +182,7 @@ text {
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: #555;
+  background: #555;
   position: relative;
   z-index: 0;
 }
@@ -188,11 +192,11 @@ text {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  margin-bottom: 5%;
+  margin-bottom: 3%; /* ↓ prima 5% per guadagnare spazio verticale */
 }
 .main-card {
-  background-color: #444;
-  border-radius: 16px;
+  background: #444;
+  border-radius: 10px;
   padding: 1rem;
   text-align: center;
   width: 100%;
@@ -203,7 +207,7 @@ text {
   align-items: center;
 }
 .main-card-text {
-  color: white;
+  color: #fff;
   font-size: 4rem;
   font-family: sans-serif;
   font-weight: lighter;
@@ -216,38 +220,71 @@ text {
   justify-content: center;
   align-items: center;
 }
-.bottom-section .card {
+
+/* ===== POSTER VERTICALI ===== */
+.bottom-section .project-card {
   margin: 1rem;
-  border-radius: 10px;
-  border: solid 5px #333;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 80%;
-  height: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* First card (desktop) */
-.first {
+  /* verticale come il volantino */
+  aspect-ratio: 3 / 4;
+  max-height: 520px;
+  border-radius: var(--card-radius);
+  border: 5px solid var(--card-border);
+  box-shadow: var(--card-shadow);
   position: relative;
-  background-image: url(../images/CardsProjectPage/LogoBr.jpg) !important;
+  overflow: hidden;
+  cursor: pointer;
+
+  /* immagine full */
+  background: transparent;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-}
-.second,
-.third {
-  position: relative;
 }
 
-/* Mobile image in first card */
-.project-thumb {
-  display: none;
+.first {
+  background-image: url("../images/CardsProjectPage/LogoBr.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.second {
+  background-image: url("../images/CardsProjectPage/LogoBr.jpg") !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Parentheses colors */
+@media (min-width: 992px) {
+  .bottom-section .project-card {
+    width: 65%;
+    max-height: 450px;
+  }
+}
+
+/* overlay scuro in basso + titolo centrato */
+.project-card .card-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: var(--overlay-height);
+  background: var(--overlay-grad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+}
+.project-card .overlay-title {
+  color: #ffcd00;
+  margin-top: 40%;
+  font-weight: 900;
+  font-family: sans-serif;
+  font-size: var(--title-size);
+  text-align: center;
+  text-transform: none;
+  letter-spacing: 0.3px;
+}
+
+/* parentesi colorate */
 .parentesi1 {
   color: yellow;
 }
@@ -263,7 +300,6 @@ text {
 .parentesi5 {
   color: lightcoral;
 }
-
 .sectionDivisor {
   color: #929292;
   margin-top: 2%;
@@ -272,6 +308,7 @@ text {
   color: #ffcd00 !important;
 }
 
+/* contatti */
 .contacts {
   margin-top: 22px;
   display: flex;
@@ -298,7 +335,6 @@ text {
   flex-shrink: 0;
 }
 
-/* ——— SOCIAL ICONS ——— */
 .contact-icons {
   display: flex;
   justify-content: center;
@@ -322,7 +358,6 @@ text {
   transform: translateY(-5px);
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.22);
 }
-
 .contact-icons a.linkedin {
   color: #0a66c2;
 }
@@ -330,13 +365,13 @@ text {
   color: #6e40c9;
 }
 
-/* Desktop only hovers */
+/* Desktop hovers */
 @media (min-width: 992px) {
   .language-switcher {
     position: fixed;
     bottom: 30px;
     right: 20px;
-    background-color: #444;
+    background: #444;
     padding: 10px;
     border-radius: 8px;
     display: flex;
@@ -345,7 +380,7 @@ text {
     z-index: 1000;
   }
   .language-switcher button {
-    background-color: #ffcd00;
+    background: #ffcd00;
     border: none;
     border-radius: 50%;
     width: 44px;
@@ -358,7 +393,7 @@ text {
     color: #333;
   }
   .language-switcher button:hover {
-    background-color: #e0e0e0;
+    background: #e0e0e0;
   }
 
   .first,
@@ -367,17 +402,20 @@ text {
     transition: transform 0.7s ease-in-out;
   }
   .first:hover {
-    transform: translate(-30px, -30px);
+    transform: translate(-20px, -20px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.35);
   }
   .second:hover {
-    transform: translate(0, -30px);
+    transform: translate(0, -20px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.35);
   }
   .third:hover {
-    transform: translate(30px, -30px);
+    transform: translate(20px, -20px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.35);
   }
 }
 
-/* Mobile-only */
+/* Mobile */
 .mobile-hamburger {
   position: fixed;
   top: max(8px, env(safe-area-inset-top));
@@ -425,7 +463,7 @@ text {
   opacity: 0.85;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 992px) {
   .mobile-hamburger {
     display: flex;
   }
@@ -447,11 +485,14 @@ text {
   .main-card-text {
     font-size: clamp(1.6rem, 6vw, 2.4rem);
   }
-  .bottom-section .card {
+
+  .bottom-section .project-card {
     width: 100%;
-    height: 200px;
+    aspect-ratio: 3/4;
+    max-height: none;
     margin: 0.5rem;
   }
+
   h4 {
     margin-left: 0.75rem;
     font-size: clamp(1.3rem, 4.5vw, 1.6rem);
@@ -466,16 +507,9 @@ text {
     height: 160px;
   }
 
-  .first {
-    background-image: none !important;
-  }
-  .first .project-thumb {
-    display: block;
-    max-width: 60%;
-    width: auto;
-    height: auto;
-    margin: 12px auto 0;
-    object-fit: contain;
+  /* rimuovi ogni <img> fallback */
+  .project-thumb {
+    display: none !important;
   }
 
   .language-switcher {
@@ -497,7 +531,7 @@ text {
     margin: 0;
     width: 36px;
     height: 36px;
-    background-color: #ffcd00;
+    background: #ffcd00;
     border: none;
     border-radius: 50%;
     color: #333;
@@ -508,7 +542,6 @@ text {
   .language-switcher button + button {
     margin-left: var(--lang-gap);
   }
-
   .sidebar-hidden .language-switcher {
     display: none !important;
   }
@@ -517,19 +550,31 @@ text {
   }
 }
 
-/* --- Fix clickability cards --- */
-.bottom-section .card {
-  cursor: pointer;
-}
-
-/* Evita che qualche layer piatto copra la seconda card */
+/* layering */
 .bottom-section .card.second {
   position: relative;
   z-index: 2;
 }
-
-/* Metti il contenuto principale sopra a eventuali layer a z-index basso */
 .main-content {
   position: relative;
   z-index: 1;
+}
+
+/* 🌟 Scrollbar per ProjectPage */
+::-webkit-scrollbar {
+  width: 20px; /* spessore */
+}
+
+::-webkit-scrollbar-track {
+  background: #555; /* colore canale */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 8px;
+  border: 3px solid #ffcd00;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffcd00; /* giallo un po’ più scuro al passaggio */
 }

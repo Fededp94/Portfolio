@@ -31,11 +31,8 @@ const ProjectPage = () => {
   useEffect(() => {
     if (!isDesktop) return;
     const handleMouseMove = (e) => {
-      if (e.clientX < 20) {
-        setSidebarVisible(true);
-      } else if (!mouseOverSidebar) {
-        setSidebarVisible(false);
-      }
+      if (e.clientX < 20) setSidebarVisible(true);
+      else if (!mouseOverSidebar) setSidebarVisible(false);
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
@@ -46,7 +43,6 @@ const ProjectPage = () => {
     setMouseOverSidebar(true);
     setSidebarVisible(true);
   };
-
   const handleMouseLeaveSidebar = () => {
     if (!isDesktop) return;
     setMouseOverSidebar(false);
@@ -80,7 +76,6 @@ const ProjectPage = () => {
 
   return (
     <div className="container-fluid container-full-height">
-      {/* HAMBURGER: solo mobile, visibile solo quando sidebar è chiusa */}
       {!isDesktop && !sidebarVisible && (
         <button
           className="mobile-hamburger d-lg-none"
@@ -92,7 +87,6 @@ const ProjectPage = () => {
         </button>
       )}
 
-      {/* OVERLAY cliccabile: solo mobile e solo quando aperta */}
       {sidebarVisible && !isDesktop && (
         <div
           className="mobile-overlay"
@@ -217,7 +211,6 @@ const ProjectPage = () => {
             </div>
           </div>
 
-          {/* 🔗 CONTATTI */}
           <div className="contacts">
             <a
               className="contact-item"
@@ -226,7 +219,6 @@ const ProjectPage = () => {
               <FaEnvelope className="contact-ico" />
               <span>{EMAIL}</span>
             </a>
-
             <a
               className="contact-item"
               href={`tel:${PHONE_TEL}`}
@@ -234,7 +226,6 @@ const ProjectPage = () => {
               <FaPhone className="contact-ico" />
               <span>{PHONE_TEXT}</span>
             </a>
-
             <div className="contact-icons">
               <a
                 className="linkedin"
@@ -260,7 +251,6 @@ const ProjectPage = () => {
 
         {/* MAIN CONTENT */}
         <div className="main-content">
-          {/* SEZIONE SUPERIORE */}
           <div className="top-section">
             <div className="main-card">
               <h3 className="main-card-text">
@@ -278,32 +268,36 @@ const ProjectPage = () => {
             </div>
           </div>
 
-          {/* TITOLO SEZIONE PROGETTI */}
           <h4>
             {t("h4MyProject")} <span className="yellow">2+</span>
           </h4>
 
-          {/* SEZIONE INFERIORE */}
+          {/* CARDS IN STILE POSTER VERTICALE */}
           <div className="bottom-section">
             <div className="row w-100 justify-content-center">
+              {/* CARD 1 */}
               <div className="col-md-4">
                 <div
-                  className="card first"
-                  onClick={() => navigate("/beer-recipe-generator")}>
-                  <div className="card-body">
-                    <h5 className="card-title">{t("beerGenerator")}</h5>
-                    <img
-                      src={logoBr}
-                      alt="Beer Recipe Generator"
-                      className="project-thumb"
-                    />
+                  className="card project-card first"
+                  onClick={() => navigate("/beer-recipe-generator")}
+                  style={{ backgroundImage: `url(${logoBr})` }}
+                  role="button"
+                  aria-label="Apri Beer Recipe Generator"
+                  tabIndex={0}
+                  onKeyDown={(e) =>
+                    (e.key === "Enter" || e.key === " ") &&
+                    navigate("/beer-recipe-generator")
+                  }>
+                  <div className="card-overlay">
+                    <div className="overlay-title">{t("beerGenerator")}</div>
                   </div>
                 </div>
               </div>
 
+              {/* CARD 2 */}
               <div className="col-md-4">
                 <div
-                  className="card second"
+                  className="card project-card second"
                   onClick={() => {
                     if (!isDesktop && sidebarVisible) setSidebarVisible(false);
                     navigate("/br-events");
@@ -318,25 +312,26 @@ const ProjectPage = () => {
                       navigate("/br-events");
                     }
                   }}>
-                  <div
-                    className="card-body"
-                    onClick={() => navigate("/br-events")}>
-                    <h5 className="card-title">{t("brEvents")}</h5>
+                  <div className="card-overlay">
+                    <div className="overlay-title">{t("brEvents")}</div>
                   </div>
                 </div>
               </div>
 
+              {/* CARD 3 */}
               <div className="col-md-4">
-                <div className="card third">
-                  <div className="card-body">
-                    <h5 className="card-title">{t("card3")}</h5>
+                <div
+                  className="card project-card third"
+                  role="img"
+                  aria-label={t("card3")}>
+                  <div className="card-overlay">
+                    <div className="overlay-title">{t("card3")}</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* LanguageSwitcher (desktop SEMPRE; mobile solo sidebar CHIUSA) */}
           {(isDesktop || (!isDesktop && !sidebarVisible)) && (
             <LanguageSwitcher />
           )}
