@@ -99,32 +99,61 @@ html {
 .events-card-2 {
   background-image: url("../images/CardsBREvents/Card2.JPG");
 }
-/*
 .events-card-3 {
-  background-image: url("../images/BrEvents/br_e_pag_3.jpg");
+  background-image: url("../images/CardsBREvents/Card3.JPG");
 }
 .events-card-4 {
-  background-image: url("../images/BrEvents/br_e_pag_4.jpg");
+  background-image: url("../images/CardsBREvents/Card4.JPG");
 }
-.events-card-5 {
-  background-image: url("../images/BrEvents/br_e_pag_5.jpg");
-}
-*/
-/*
 
 .events-card-video {
+  position: relative;
   width: 100%;
   max-width: 876px;
   aspect-ratio: 16 / 9;
-  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 4px solid #333;
+  background: #000;
 }
+
 .events-card-video video {
-  object-fit: cover;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: fill;
+  object-position: center;
+  display: block;
 }
-*/
-/* Video controls */
+
+.events-video-controls {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+.events-video-controls button {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: clamp(44px, 5vw, 56px);
+  height: clamp(44px, 5vw, 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(18px, 2.2vw, 22px);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.events-video-controls button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 .events-video-controls {
   position: absolute;
   bottom: 15px;
@@ -151,7 +180,6 @@ html {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Testo card */
 .events-card-text {
   font-size: clamp(1rem, 0.6vw + 0.9rem, 1.15rem);
   font-weight: 550;
