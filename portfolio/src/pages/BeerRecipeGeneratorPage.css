@@ -167,7 +167,7 @@ html {
   scrollbar-color: #ffcd00 #555555;
   scrollbar-width: thin;
 }
-/* Chromium/WebKit */
+
 .beer-recipe-container::-webkit-scrollbar {
   width: 20px;
 }

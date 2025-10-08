@@ -142,7 +142,7 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: "en", // lingua di default
+  lng: "en",
   interpolation: {
     escapeValue: false,
   },

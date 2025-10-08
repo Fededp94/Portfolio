@@ -95,7 +95,7 @@ const BREventsPage = () => {
         </p>
       </div>
 
-      {/* Card 1: Testo a sinistra */}
+      {/* Card 1 */}
       <div className="events-card-container">
         <div className="events-card-text">
           <p>{typeof d1 === "string" ? d1 : ""}</p>
@@ -103,7 +103,7 @@ const BREventsPage = () => {
         <div className="events-card events-card-1" />
       </div>
 
-      {/* Card 2: Testo a destra */}
+      {/* Card 2 */}
       <div className="events-card-container">
         <div className="events-card events-card-2" />
         <div className="events-card-text">
@@ -111,7 +111,7 @@ const BREventsPage = () => {
         </div>
       </div>
 
-      {/* Card 3: Testo a sinistra */}
+      {/* Card 3 */}
       <div className="events-card-container">
         <div className="events-card-text">
           <p>{typeof d3 === "string" ? d3 : ""}</p>
@@ -119,7 +119,7 @@ const BREventsPage = () => {
         <div className="events-card events-card-3" />
       </div>
 
-      {/* Card 4: Testo a destra */}
+      {/* Card 4 */}
       <div className="events-card-container">
         <div className="events-card events-card-4" />
         <div className="events-card-text">

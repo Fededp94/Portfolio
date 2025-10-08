@@ -22,14 +22,13 @@
 }
 
 .container-full-height {
-  height: 100vh;
+  min-height: 100vh;
   background: #fff;
 }
 .row-full-height {
-  height: 100%;
+  min-height: 100%;
 }
 
-/* Sidebar (immutata) */
 .sidebar-hidden {
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
@@ -49,16 +48,27 @@
   width: 25%;
   z-index: 1100;
   transition: transform 0.7s ease-in-out;
-  overflow-y: hidden;
+
+  overflow-y: auto;
   scrollbar-width: thin;
+  scrollbar-color: #ffcd00 #3a3a3a;
 }
+
 .sidebar::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: #3a3a3a;
 }
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: yellow;
-  border-radius: 10px;
+  background: #ffcd00;
+  border-radius: 8px;
+  border: 3px solid #3a3a3a;
 }
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #ffb800;
+}
+
 .sidebar-card {
   width: 100%;
   margin-bottom: 10px;
@@ -180,7 +190,7 @@ text {
 .main-content {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   background: #555;
   position: relative;
@@ -192,7 +202,7 @@ text {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  margin-bottom: 3%; /* ↓ prima 5% per guadagnare spazio verticale */
+  margin-bottom: 3%;
 }
 .main-card {
   background: #444;
@@ -225,7 +235,7 @@ text {
 .bottom-section .project-card {
   margin: 1rem;
   width: 80%;
-  /* verticale come il volantino */
+
   aspect-ratio: 3 / 4;
   max-height: 520px;
   border-radius: var(--card-radius);
@@ -235,7 +245,6 @@ text {
   overflow: hidden;
   cursor: pointer;
 
-  /* immagine full */
   background: transparent;
   background-size: cover;
   background-position: center;
@@ -262,7 +271,6 @@ text {
   }
 }
 
-/* overlay scuro in basso + titolo centrato */
 .project-card .card-overlay {
   position: absolute;
   inset: auto 0 0 0;
@@ -507,7 +515,6 @@ text {
     height: 160px;
   }
 
-  /* rimuovi ogni <img> fallback */
   .project-thumb {
     display: none !important;
   }
@@ -550,7 +557,6 @@ text {
   }
 }
 
-/* layering */
 .bottom-section .card.second {
   position: relative;
   z-index: 2;
@@ -560,21 +566,17 @@ text {
   z-index: 1;
 }
 
-/* 🌟 Scrollbar per ProjectPage */
 ::-webkit-scrollbar {
-  width: 20px; /* spessore */
+  width: 20px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #555; /* colore canale */
+  background: #555;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #555;
   border-radius: 8px;
   border: 3px solid #ffcd00;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffcd00; /* giallo un po’ più scuro al passaggio */
+  background: #ffcd00;
 }
