@@ -44,7 +44,7 @@ const resources = {
       // =======================
       DescrizioneBrE: {
         description:
-          "BR Events is a platform to create, publish, and manage events with email signups and automatic reminders. Technologies:",
+          "BR Events is a showcase platform and website to create, publish, and manage public BR events, with email sign-ups and automatic reminders. Technologies used:",
         technologies: [
           "HTML5",
           "CSS3",
@@ -56,17 +56,12 @@ const resources = {
         ],
       },
       BrE_cardDescrizione1:
-        "Public homepage: filter events by location/month and subscribe to the newsletter.",
-      BrE_cardDescrizione2:
-        "Admin panel: create, edit, delete events and manage images.",
-      BrE_cardDescrizione3:
-        "JWT authentication: admin-only access with backend security.",
-      BrE_cardDescrizione4:
-        "HTML email reminders: automatic send two days before events.",
-      BrE_cardDescrizione5:
-        "Cloudinary integration and deploy: media handling and publishing.",
+        "Public homepage: Scroll through and filter events by location or month, and sign up for the newsletter.",
+      BrE_cardDescrizione2: "Newsletter sign-up method",
+      BrE_cardDescrizione3: "Admin panel: create events.",
+      BrE_cardDescrizione4: "Admin panel: edit and delete events.",
       BrE_cardDescrizioneVideo:
-        "Quick demo of the flow: create event, preview, and reminders.",
+        "Short video: showcase site, event creation, preview, and reminders.",
     },
   },
 
@@ -113,7 +108,7 @@ const resources = {
       // =======================
       DescrizioneBrE: {
         description:
-          "BR Events è la piattaforma per creare, pubblicare e gestire eventi con iscrizioni email e reminder automatici. Tecnologie:",
+          "BR Events è una piattaforma e sito vetrina per creare, pubblicare e gestire eventi pubblici BR con iscrizioni email e reminder automatici. Linguaggi utilizzati:",
         technologies: [
           "HTML5",
           "CSS3",
@@ -125,24 +120,19 @@ const resources = {
         ],
       },
       BrE_cardDescrizione1:
-        "Homepage pubblica: filtra gli eventi per luogo/mese e iscriviti alla newsletter.",
-      BrE_cardDescrizione2:
-        "Pannello Admin: crea, modifica, elimina eventi e gestisci le immagini.",
-      BrE_cardDescrizione3:
-        "Autenticazione JWT: accesso riservato per l’admin, sicurezza lato backend.",
-      BrE_cardDescrizione4:
-        "Reminder email HTML: invio automatico due giorni prima dell’evento.",
-      BrE_cardDescrizione5:
-        "Integrazione Cloudinary e deploy: gestione media e pubblicazione online.",
+        "Homepage pubblica: Scorri e filtra gli eventi per luogo/mese e iscriviti alla newsletter.",
+      BrE_cardDescrizione2: "Modalità di accesso alla newsletter",
+      BrE_cardDescrizione3: "Pannello Admin: crea eventi.",
+      BrE_cardDescrizione4: "Pannello Admin: modifica ed elimina eventi.",
       BrE_cardDescrizioneVideo:
-        "Demo rapida del flusso: creazione evento, anteprima e reminder.",
+        "Breve Video: Sito vetrina, creazione evento, anteprima e reminder.",
     },
   },
 };
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: "en",
+  lng: "it",
   interpolation: {
     escapeValue: false,
   },
