@@ -139,7 +139,7 @@ const ProjectPage = () => {
             </div>
             <div className="progress-bar">
               <div className="progress-bar-fill" data-percentage="85"></div>
-              <span className="progress-bar-label">PostgresSQL</span>
+              <span className="progress-bar-label">PostgreSQL</span>
             </div>
             <div className="progress-bar">
               <div className="progress-bar-fill" data-percentage="100"></div>
