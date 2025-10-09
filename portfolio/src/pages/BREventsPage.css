@@ -20,7 +20,7 @@ html {
 /* Back arrow */
 .events-back-arrow {
   position: fixed;
-  top: 16px;
+  top: 30px;
   left: 16px;
   z-index: 1100;
   background: none;
@@ -278,5 +278,11 @@ html {
     top: 12px;
     left: 12px;
     font-size: 2.2rem;
+  }
+
+  .events-back-arrow {
+    top: 6px;
+    left: 2px;
+    font-size: 2rem;
   }
 }

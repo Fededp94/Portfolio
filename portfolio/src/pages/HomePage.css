@@ -13,7 +13,6 @@
   --anim-card: 1000ms; /* durata comparsa riquadro */
   --anim-stagger: 120ms; /* pausa dopo lo split */
 
-  /* Luci/Ombre per rilievo/incavo */
   --emboss-light: rgba(255, 255, 255, 0.95);
   --emboss-dark: rgba(0, 0, 0, 0.55);
 }
@@ -57,8 +56,8 @@
   animation: shrinkRight var(--anim-split) var(--anim-ease) forwards;
 }
 
-/* Riquadro (cliccabile) */
 .title-card {
+  box-sizing: border-box;
   position: absolute;
   top: 25%;
   left: calc(60% + 7px);
@@ -96,7 +95,7 @@
   outline-offset: 4px;
 }
 
-/* Testi interni */
+/* Testi interni (desktop) */
 .subtitle {
   margin: 0 0 0.6rem 0;
   font-size: 1.35rem;
@@ -156,7 +155,7 @@
   font-weight: 600;
 }
 
-/* ——— Effetti rilievo/incavo ——— */
+/* ——— Effetti rilievo/incavo (desktop) ——— */
 .title .port {
   color: var(--accent);
   -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.1);
@@ -177,6 +176,7 @@
   filter: contrast(1.05) brightness(0.96);
 }
 
+/* Hover desktop: inverti — FOLIO rilievo sfumato, PORT incavo nero */
 .title-card:hover .folio {
   color: var(--accent);
   text-shadow: -2px -2px 2px rgba(255, 255, 255, 0.6),
@@ -184,7 +184,6 @@
     6px 6px 12px rgba(0, 0, 0, 0.22), 0 0 10px rgba(0, 0, 0, 0.15);
   filter: brightness(1.02) contrast(1.02);
 }
-
 .title-card:hover .port {
   color: #333333;
   text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.25),
@@ -192,8 +191,8 @@
     -3px -3px 2px rgba(0, 0, 0, 0.75), 0 0 6px rgba(0, 0, 0, 0.55);
   filter: contrast(1.05) brightness(0.96);
 }
-/* ——— Fine effetti ——— */
 
+/* —— KEYFRAMES DESKTOP —— */
 @keyframes growLeft {
   from {
     width: 0;
@@ -218,5 +217,99 @@
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
+  }
+}
+
+/*    MOBILE VERSION    */
+
+@media (max-width: 768px) {
+  .left-panel {
+    width: 50%;
+  }
+  .right-panel {
+    width: 50%;
+  }
+
+  .portfolio-hero.is-entering .left-panel {
+    width: 0;
+    animation: growLeft50 var(--anim-split) var(--anim-ease) forwards;
+  }
+  .portfolio-hero.is-entering .right-panel {
+    width: 100%;
+    animation: shrinkRight50 var(--anim-split) var(--anim-ease) forwards;
+  }
+
+  .title-card {
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(92vw, 560px);
+    max-width: 92vw;
+    padding: 1rem 1.25rem;
+    border-width: 3px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    text-align: center;
+  }
+
+  .title-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    transform: translateX(-50%);
+  }
+
+  .subtitle {
+    font-size: clamp(1.05rem, 4.2vw, 1.35rem);
+    left: 0;
+    margin-bottom: 0.5rem;
+  }
+  .title {
+    font-size: clamp(1.8rem, 12vw, 2.6rem);
+    left: 0;
+    grid-template-columns: 1fr var(--split-gap) 1fr;
+  }
+  .byline {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    left: 0;
+    text-align: center;
+  }
+
+  .selected-works {
+    font-size: clamp(0.9rem, 3.7vw, 1.1rem);
+    left: 1rem;
+    bottom: 1rem;
+  }
+
+  .title .port {
+    color: #333333;
+    -webkit-text-stroke: 0.6px rgba(0, 0, 0, 0.12);
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.25),
+      1px 1px 0 rgba(255, 255, 255, 0.15), -2px -2px 0 rgba(0, 0, 0, 0.85),
+      -3px -3px 2px rgba(0, 0, 0, 0.75), 0 0 6px rgba(0, 0, 0, 0.55);
+    filter: contrast(1.05) brightness(0.96);
+  }
+  .title .folio {
+    color: var(--accent);
+    text-shadow: -2px -2px 2px rgba(255, 255, 255, 0.6),
+      -4px -4px 6px rgba(255, 255, 255, 0.35), 2px 2px 2px rgba(0, 0, 0, 0.35),
+      6px 6px 12px rgba(0, 0, 0, 0.22), 0 0 10px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.02) contrast(1.02);
+  }
+
+  /* —— KEYFRAMES MOBILE —— */
+  @keyframes growLeft50 {
+    from {
+      width: 0;
+    }
+    to {
+      width: 50%;
+    }
+  }
+  @keyframes shrinkRight50 {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 50%;
+    }
   }
 }
