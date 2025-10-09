@@ -1,0 +1,222 @@
+:root {
+  --accent: #ffcd00;
+  --text: #333333;
+  --muted: #333333;
+
+  --split-offset: 0;
+  --split-gap: clamp(0.8rem, 1.8vw, 2rem);
+  --balance-nudge: 0px;
+
+  /* Animazioni (lineari per eliminare lo scatto) */
+  --anim-ease: linear;
+  --anim-split: 1400ms; /* durata creazione background */
+  --anim-card: 1000ms; /* durata comparsa riquadro */
+  --anim-stagger: 120ms; /* pausa dopo lo split */
+
+  /* Luci/Ombre per rilievo/incavo */
+  --emboss-light: rgba(255, 255, 255, 0.95);
+  --emboss-dark: rgba(0, 0, 0, 0.55);
+}
+
+/* Contenitore principale */
+.portfolio-hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  background: #fff;
+  color: var(--text);
+  font-family: sans-serif;
+}
+
+.left-panel,
+.right-panel {
+  flex: none;
+  height: 100vh;
+  will-change: width;
+}
+
+.left-panel {
+  width: 60%;
+  background: #555;
+}
+.right-panel {
+  width: 40%;
+  background: var(--accent);
+}
+
+.portfolio-hero.is-entering .left-panel {
+  width: 0;
+  background: #555;
+  animation: growLeft var(--anim-split) var(--anim-ease) forwards;
+}
+.portfolio-hero.is-entering .right-panel {
+  width: 100%;
+  background: var(--accent);
+  animation: shrinkRight var(--anim-split) var(--anim-ease) forwards;
+}
+
+/* Riquadro (cliccabile) */
+.title-card {
+  position: absolute;
+  top: 25%;
+  left: calc(60% + 7px);
+  transform: translateX(-50%);
+  background: transparent;
+  border: 5px solid #333333;
+  border-radius: 10px;
+  padding: clamp(2rem, 4vw, 3rem) clamp(2.5rem, 5vw, 4rem);
+  box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.1);
+  max-width: min(700px, 90vw);
+  text-align: left;
+
+  cursor: pointer;
+  user-select: none;
+  transition: box-shadow 300ms ease, transform 300ms ease;
+  will-change: transform, opacity;
+}
+
+.portfolio-hero.is-entering .title-card {
+  opacity: 0;
+  transform: translateX(-50%) translateY(10px);
+  animation: fadeInUp var(--anim-card) ease forwards;
+  animation-delay: calc(var(--anim-split) + var(--anim-stagger));
+}
+
+.title-card:hover {
+  box-shadow: 6px 10px 28px rgba(0, 0, 0, 0.18);
+  transform: translateX(-50%) translateY(-2px);
+}
+.title-card:active {
+  transform: translateX(-50%) translateY(0);
+}
+.title-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* Testi interni */
+.subtitle {
+  margin: 0 0 0.6rem 0;
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #333333;
+  letter-spacing: 0.01em;
+  position: relative;
+  left: var(--split-offset);
+}
+
+.title {
+  margin: 0.5rem 0 1rem 0;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  font-size: clamp(2.5rem, 4.5vw + 0.8rem, 5rem);
+
+  display: grid;
+  grid-template-columns: 1fr var(--split-gap) 1fr;
+  align-items: baseline;
+  column-gap: 0;
+  position: relative;
+  left: var(--split-offset);
+}
+.title .port {
+  grid-column: 1/2;
+  justify-self: end;
+  color: var(--accent);
+  margin-right: calc(var(--balance-nudge));
+}
+.title .folio {
+  grid-column: 3/4;
+  justify-self: start;
+  color: #333333;
+  margin-left: calc(var(--balance-nudge));
+}
+
+/* By Federico */
+.byline {
+  margin: 0.35rem 0 0 0;
+  font-size: large;
+  font-weight: 800;
+  color: #333333;
+  text-align: right;
+  position: relative;
+  left: var(--split-offset);
+  letter-spacing: 0.01em;
+}
+
+.selected-works {
+  position: absolute;
+  left: clamp(1rem, 5vw, 8%);
+  bottom: clamp(1rem, 5vh, 8%);
+  color: #333333;
+  font-size: 2rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+/* ——— Effetti rilievo/incavo ——— */
+.title .port {
+  color: var(--accent);
+  -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.1);
+  text-shadow: -2px -2px 2px rgba(255, 255, 255, 0.6),
+    -4px -4px 6px rgba(255, 255, 255, 0.35), 2px 2px 2px rgba(0, 0, 0, 0.35),
+    6px 6px 12px rgba(0, 0, 0, 0.22), 0 0 10px rgba(0, 0, 0, 0.12);
+  transition: text-shadow 0.28s ease, filter 0.28s ease, color 0.28s ease;
+  filter: brightness(1.02) contrast(1.02);
+}
+
+.title .folio {
+  color: #333333;
+  -webkit-text-stroke: 0.6px rgba(0, 0, 0, 0.12);
+  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.25),
+    1px 1px 0 rgba(255, 255, 255, 0.15), -2px -2px 0 rgba(0, 0, 0, 0.85),
+    -3px -3px 2px rgba(0, 0, 0, 0.75), 0 0 6px rgba(0, 0, 0, 0.55);
+  transition: text-shadow 0.28s ease, filter 0.28s ease, color 0.28s ease;
+  filter: contrast(1.05) brightness(0.96);
+}
+
+.title-card:hover .folio {
+  color: var(--accent);
+  text-shadow: -2px -2px 2px rgba(255, 255, 255, 0.6),
+    -4px -4px 6px rgba(255, 255, 255, 0.35), 2px 2px 2px rgba(0, 0, 0, 0.35),
+    6px 6px 12px rgba(0, 0, 0, 0.22), 0 0 10px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.02) contrast(1.02);
+}
+
+.title-card:hover .port {
+  color: #333333;
+  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.25),
+    1px 1px 0 rgba(255, 255, 255, 0.15), -2px -2px 0 rgba(0, 0, 0, 0.85),
+    -3px -3px 2px rgba(0, 0, 0, 0.75), 0 0 6px rgba(0, 0, 0, 0.55);
+  filter: contrast(1.05) brightness(0.96);
+}
+/* ——— Fine effetti ——— */
+
+@keyframes growLeft {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60%;
+  }
+}
+@keyframes shrinkRight {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 40%;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

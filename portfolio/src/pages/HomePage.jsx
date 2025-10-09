@@ -1,31 +1,37 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "./HomePage.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
 
-  const handleEnter = () => {
-    navigate("/projects");
-  };
-
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center min-vh-100 bg-primary text-white p-3 text-center">
-      <h1
-        className="mb-4"
-        style={{ fontSize: "clamp(1.8rem, 3vw + 1rem, 3rem)" }}>
-        Benvenuto nel mio Portfolio
-      </h1>
-      <button
-        className="btn btn-light btn-lg px-4 py-2"
-        onClick={handleEnter}
-        style={{
-          borderRadius: "25px",
-          fontSize: "clamp(1rem, 1vw + .8rem, 1.25rem)",
-        }}
-        aria-label="Entra nel portfolio">
-        ENTRA
-      </button>
-    </div>
+    <main
+      className="portfolio-hero is-entering"
+      role="main"
+      aria-label="Portfolio cover">
+      {/* Bande verticali */}
+      <div className="left-panel" aria-hidden="true" />
+      <div className="right-panel" aria-hidden="true" />
+
+      {/* Riquadro titolo (cliccabile) */}
+      <section
+        className="title-card"
+        onClick={() => navigate("/projects")}
+        role="button"
+        tabIndex={0}
+        aria-label="Entra nel portfolio"
+        onKeyDown={(e) =>
+          (e.key === "Enter" || e.key === " ") && navigate("/projects")
+        }>
+        <p className="subtitle">Full Stack Developer</p>
+        <h1 className="title">
+          <span className="port">PORT</span>
+          <span className="folio">FOLIO</span>
+        </h1>
+        <p className="byline">By : Federico Di Presa</p>
+      </section>
+    </main>
   );
 };
 
