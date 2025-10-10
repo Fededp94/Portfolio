@@ -45,6 +45,10 @@
   background: var(--accent);
 }
 
+.folio {
+  margin-right: -20px;
+}
+
 .portfolio-hero.is-entering .left-panel {
   width: 0;
   background: #555;
@@ -66,7 +70,7 @@
   border: 5px solid #333333;
   border-radius: 10px;
   padding: clamp(2rem, 4vw, 3rem) clamp(2.5rem, 5vw, 4rem);
-  box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.514);
   max-width: min(700px, 90vw);
   text-align: left;
 
@@ -106,6 +110,18 @@
   left: var(--split-offset);
 }
 
+/* By Federico */
+.byline {
+  margin: 0.35rem 0 0 0;
+  font-size: large;
+  font-weight: 800;
+  color: #333333;
+  text-align: right;
+  position: relative;
+  left: var(--split-offset);
+  letter-spacing: 0.01em;
+}
+
 .title {
   margin: 0.5rem 0 1rem 0;
   line-height: 1.1;
@@ -131,18 +147,6 @@
   justify-self: start;
   color: #333333;
   margin-left: calc(var(--balance-nudge));
-}
-
-/* By Federico */
-.byline {
-  margin: 0.35rem 0 0 0;
-  font-size: large;
-  font-weight: 800;
-  color: #333333;
-  text-align: right;
-  position: relative;
-  left: var(--split-offset);
-  letter-spacing: 0.01em;
 }
 
 .selected-works {
