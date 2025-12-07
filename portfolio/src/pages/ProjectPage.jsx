@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import "../pages/ProjectPage.css";
 import foto from "../images/ProfiloImg.jpg";
 import logoBr from "../images/CardsProjectPage/LogoBr.jpg";
+import logoHeimi from "../images/CardsProjectPage/logoHeimi.jpg";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import { useNavigate } from "react-router-dom";
 import { FaLinkedin, FaGithub, FaEnvelope, FaPhone } from "react-icons/fa";
@@ -322,6 +323,7 @@ const ProjectPage = () => {
               <div className="col-md-4">
                 <div
                   className="card project-card third"
+                  style={{ backgroundImage: `url(${logoHeimi})` }}
                   role="img"
                   aria-label={t("card3")}>
                   <div className="card-overlay">

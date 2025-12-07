@@ -231,7 +231,7 @@ text {
   align-items: center;
 }
 
-/* ===== POSTER VERTICALI ===== */
+/* ===== CARDS VERTICALI ===== */
 .bottom-section .project-card {
   margin: 1rem;
   width: 80%;
@@ -259,6 +259,13 @@ text {
 }
 .second {
   background-image: url("../images/CardsProjectPage/LogoBr.jpg") !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.third {
+  background-image: url("../images/CardsProjectPage/logoHeimi.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
